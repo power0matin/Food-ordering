@@ -13,19 +13,19 @@ class Customer(Base):
     _email = Column("email", String(20), nullable=False)
     _phone = Column("phone", Integer, default=0)
 
-    def __init__(self, id, name, email, phone):
-        self.id = id
+    def __init__(self, customer_id, name, email, phone):
+        self.customer_id = customer_id
         self.name = name
         self.family = email
         self.age = phone
 
     @property
-    def id(self):
+    def customer_id(self):
         return self._id
 
-    @id.setter
-    def id(self, id):
-        self._id = id
+    @customer_id.setter
+    def customer_id(self, customer_id):
+        self._id = customer_id
 
     @property
     def name(self):
