@@ -15,7 +15,7 @@
   - `order.py`
   - `payment.py`
 
-- **مخزن‌ها (repositorie/)**: شامل پیاده‌سازی CRUD برای هر مدل.
+- **مخزن‌ها (repository/)**: شامل پیاده‌سازی CRUD برای هر مدل.
   - `admin_repository.py`
   - `customer_repository.py`
   - `food_repository.py`
