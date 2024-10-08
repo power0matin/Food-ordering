@@ -68,3 +68,10 @@ class CrudRepository:
             return entity
         except Exception as e:
             raise e
+
+    def find_by_username(self, username):
+        try:
+            entity = session.get(self.class_name, username)
+            return entity
+        except Exception as e:
+            raise e
