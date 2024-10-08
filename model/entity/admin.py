@@ -34,7 +34,7 @@ class Admin:
 
     @name.setter
     def name(self, name):
-        self._name = Validation.name_validator(name)
+        self._name = Validation.name_validator(name, "Invalid name")
 
     @property
     def family(self):
@@ -42,7 +42,7 @@ class Admin:
 
     @family.setter
     def family(self, family):
-        self._family = Validation.family_validator(family)
+        self._family = Validation.family_validator(family, "Invalid family")
 
     @property
     def username(self):
@@ -50,7 +50,7 @@ class Admin:
 
     @username.setter
     def username(self, username):
-        self._username = Validation.username_validator(username)
+        self._username = Validation.username_validator(username, "Invalid username")
 
     @property
     def password(self):
@@ -58,7 +58,7 @@ class Admin:
 
     @password.setter
     def password(self, password):
-        self._password = Validation.password_validator(password)
+        self._password = Validation.password_validator(password, "Invalid password")
 
     @property
     def access_level(self):
@@ -66,4 +66,4 @@ class Admin:
 
     @access_level.setter
     def access_level(self, access_level):
-        self._access_level = Validation.access_level_validator(access_level)
+        self._access_level = Validation.access_level_validator(access_level, "Invalid Level")
