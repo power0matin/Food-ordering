@@ -31,5 +31,5 @@ class CustomerService:
         return cls.repo.find_by_id(customer_id)
 
     @classmethod
-    def find_by(cls, by):
-        return cls.repo.find_by(by)
+    def find_by_username(cls, username):
+        return cls.repo.find_by_username(username)
