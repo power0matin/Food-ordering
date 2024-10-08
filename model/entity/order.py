@@ -1,5 +1,5 @@
 from model.entity.base import Base
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, DateTime, String
 
 
 class Order(Base):
@@ -9,13 +9,13 @@ class Order(Base):
     _amount = Column("amount", Integer, nullable=False)
     _discount = Column("discount", Integer, default=0)
     _pure_amount = Column("pure_amount", Integer, default=_amount)
-    _date = Column("date", String)
+    _date_time = Column("date_time", DateTime)
 
-    def __init__(self, order_id, amount, discount, pure_amount):
-        self._id = order_id
-        self._amount = amount
-        self._discount = discount
-        self._pure_amount = pure_amount
+    def __init__(self, id,table, customer, amount, discount, pure_amount):
+        self.id = id
+        self.amount = amount
+        self.discount = discount
+        self.pure_amount = pure_amount
 
     @property
     def order_id(self):
