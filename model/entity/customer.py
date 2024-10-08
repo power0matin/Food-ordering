@@ -16,8 +16,8 @@ class Customer(Base):
     def __init__(self, customer_id, name, email, phone):
         self.customer_id = customer_id
         self.name = name
-        self.family = email
-        self.age = phone
+        self.email = email
+        self.phone = phone
 
     @property
     def customer_id(self):
