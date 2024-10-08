@@ -43,3 +43,13 @@ class Validation:
             return access_level
         else:
             return ValueError(message)
+
+    @staticmethod
+    def email_validator(email, message):
+        if re.match(r"^[a-zA-Z0-9]\w+@(gmail|yahoo).com$", email, re.I):
+            return email
+
+    @staticmethod
+    def phone_validator(phone, message):
+        if type(phone) == str and re.match(r"^09[0-9]{9}$", phone):
+            return phone
