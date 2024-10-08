@@ -33,13 +33,15 @@ class Order(Base):
     _table = Column("table", String(20), ForeignKey("table_tbl.title"))
     table = relationship("table", back_populates="order_table")
 
-    def __init__(self, order_id, table, customer, amount, discount, pure_amount):
+    def __init__(self, order_id, amount, discount,  pure_amount, customer, food, drink, table):
         self.order_id = order_id
-        self.table = table
-        self.customer = customer
-        self.amount = amount
-        self.discount = discount
-        self.pure_amount = pure_amount
+        self._amount = amount
+        self._discount = discount
+        self._pure_amount = pure_amount
+        self._customer = customer
+        self._food_title = food
+        self._drink = drink
+        self._table = table
 
     @property
     def order_id(self):
