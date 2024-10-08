@@ -26,7 +26,7 @@ class Admin:
 
     @id.setter
     def id(self, id):
-        self._id = Validation.id_validator(id)
+        self._id = Validation.id_validator(id, "Invalid Id")
 
     @property
     def name(self):
