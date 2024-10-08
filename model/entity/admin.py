@@ -1,4 +1,4 @@
-from model.tools import validation
+from model.tools.validation import Validation
 from sqlalchemy import Column, Integer, String, Boolean
 
 
@@ -13,12 +13,12 @@ class Admin:
     _access_level = Column("access_level", Integer, nullable=False)
 
     def __init__(self, id, name, family, username, password, access_level):
-        self.id = validation.id_validator(id)
-        self._name = validation.name_validator(name)
-        self._family = validation.family_validator(family)
-        self.username = validation.username_validator(username)
-        self.password = validation.password_validator(password)
-        self.access_level = validation.access_level_validator(access_level)
+        self.id = id
+        self._name = name
+        self._family = family
+        self.username = username
+        self.password = password
+        self.access_level = access_level
 
     @property
     def id(self):
@@ -26,7 +26,7 @@ class Admin:
 
     @id.setter
     def id(self, id):
-        self._id = validation.id_validator(id)
+        self._id = Validation.id_validator(id)
 
     @property
     def name(self):
@@ -34,7 +34,7 @@ class Admin:
 
     @name.setter
     def name(self, name):
-        self._name = validation.name_validator(name)
+        self._name = Validation.name_validator(name)
 
     @property
     def family(self):
@@ -42,7 +42,7 @@ class Admin:
 
     @family.setter
     def family(self, family):
-        self._family = validation.family_validator(family)
+        self._family = Validation.family_validator(family)
 
     @property
     def username(self):
@@ -50,7 +50,7 @@ class Admin:
 
     @username.setter
     def username(self, username):
-        self._username = validation.username_validator(username)
+        self._username = Validation.username_validator(username)
 
     @property
     def password(self):
@@ -58,7 +58,7 @@ class Admin:
 
     @password.setter
     def password(self, password):
-        self._password = validation.password_validator(password)
+        self._password = Validation.password_validator(password)
 
     @property
     def access_level(self):
@@ -66,4 +66,4 @@ class Admin:
 
     @access_level.setter
     def access_level(self, access_level):
-        self._access_level = validation.access_level_validator(access_level)
+        self._access_level = Validation.access_level_validator(access_level)
