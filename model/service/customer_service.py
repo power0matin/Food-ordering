@@ -35,5 +35,5 @@ class CustomerService:
         return cls.repo.find_by(Customer.username == username)
 
     @classmethod
-    def find_by_password(cls, password):
-        return cls.repo.find_by(Customer.password == password)
+    def find_by_username_and_password(cls, username, password):
+        return cls.repo.find_by(Customer.password == password and Customer.username == username)
