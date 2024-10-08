@@ -1,9 +1,9 @@
 class FoodValidation:
     @staticmethod
-    def name_validator(name, error_message):
-        if not name or len(name) > 50:
+    def title_validator(title, error_message):
+        if not title or len(title) > 50:
             raise ValueError(error_message)
-        return name
+        return title
 
     @staticmethod
     def description_validator(description, error_message):
@@ -16,3 +16,15 @@ class FoodValidation:
         if price <= 0:
             raise ValueError(error_message)
         return price
+
+    @staticmethod
+    def duration_validator(duration, error_message):
+        if duration <= 0:
+            raise ValueError(error_message)
+        return duration
+
+    @staticmethod
+    def size_validator(size, error_message):
+        if not size or len(size) > 10:
+            raise ValueError(error_message)
+        return size
