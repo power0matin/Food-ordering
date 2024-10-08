@@ -18,17 +18,17 @@ class CustomerService:
         return customer
 
     @classmethod
-    def remove(cls, customer_id):
-        cls.repo.remove(customer_id)
-        return customer_id
+    def remove(cls, id):
+        cls.repo.remove(id)
+        return id
 
     @classmethod
     def find_all(cls):
         return cls.repo.find_all()
 
     @classmethod
-    def find_by_id(cls, customer_id):
-        return cls.repo.find_by_id(customer_id)
+    def find_by_id(cls, id):
+        return cls.repo.find_by_id(id)
 
     @classmethod
     def find_by_username(cls, username):
