@@ -3,9 +3,9 @@ import re
 
 class Validation:
     @staticmethod
-    def id_validator(admin_id, message):
-        if type(admin_id) == int and re.match(r"^[1-9][0-9]{0,6}$", str(admin_id)):
-            return admin_id
+    def id_validator(id, message):
+        if type(id) == int and re.match(r"^[1-9][0-9]{0,6}$", str(id)):
+            return id
         else:
             return ValueError(message)
 
