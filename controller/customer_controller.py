@@ -52,3 +52,10 @@ class CustomerController:
             return True, CustomerService.find_by_username(username)
         except Exception as e:
             return False, str(e)
+
+    @classmethod
+    def find_by_username_and_password(cls, username, password):
+        try:
+            return True, CustomerService.find_by_username_and_password(username, password)
+        except Exception as e:
+            return False, str(e)
