@@ -1,11 +1,11 @@
 ### TODO List - Food Ordering System
 
 ## General Tasks
-+ [ ] Organize project folder structure (متین شاه‌آبادی)
-+ [ ] Write `README.md` and `TODO.md` with project instructions and description (متین شاه‌آبادی)
+- [x] Organize project folder structure (متین شاه‌آبادی)
+- [x] Write `README.md` and `TODO.md` with project instructions and description (متین شاه‌آبادی)
 
 ## Model Implementation (models/)
-- [ ] Create `admin.py` (متین شاه‌آبادی)
+- [x] Create `admin.py` (متین شاه‌آبادی)
 - [ ] Create `customer.py` (آیدا شمس)
 - [ ] Create `food.py` (بردیا زاغری)
 - [ ] Create `drink.py` (مینا رضایی)
