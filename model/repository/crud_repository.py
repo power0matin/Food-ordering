@@ -50,18 +50,3 @@ class CrudRepository:
     def find_by(self, find_statement):
         entity = session.query(self.class_name).filter(find_statement).all()
         return entity
-
-    def find_by_username(self, username):
-        return self.find_by(username == username)
-
-    def find_by_access_level(self, access_level):
-        return self.find_by(access_level == access_level)
-
-    def find_by_credentials(self, username, password):
-        return self.find_by((username == username) & (Admin.password == password))
-
-    def find_by_name(self, name):
-        return self.find_by(Admin._name == name)
-
-    def find_by_family(self, family):
-        return self.find_by(Admin._family == family)
