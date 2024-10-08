@@ -22,7 +22,7 @@ class Order(Base):
     _date_time = Column("date_time", DateTime)
 
     _customer_name = Column("customer_name", String(20), ForeignKey("customer_tbl.name"), nullable=False)
-    customer_name = relationship("customer", back_populates="order_table")
+    customer = relationship("customer", back_populates="order_table")
 
     _food_title = Column("food", String(20), ForeignKey("food_tbl.title"))
     food = relationship("food", back_populates="order_table")
