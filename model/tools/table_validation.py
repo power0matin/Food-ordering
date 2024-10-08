@@ -26,7 +26,7 @@ class TableValidation:
 
     @staticmethod
     def number_validator(number,message):
-        if type(number) == int and re.match(r"^[1-9]{2}$", number):
+        if type(number) == int and number >= 0:
             return number
         else:
             raise ValueError(message)
