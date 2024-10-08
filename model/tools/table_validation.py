@@ -1,6 +1,6 @@
 import re
 
-class Validation:
+class TableValidation:
 
     @staticmethod
     def id_validator(id,message):
