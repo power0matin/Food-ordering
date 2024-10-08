@@ -7,18 +7,18 @@ from model.service.customer_service import CustomerService
 class CustomerController:
 
     @classmethod
-    def save(cls, name, username, password):
+    def save(cls, name,family, username, password):
         try:
-            customer = Customer(None, name, username, password)
+            customer = Customer(None, name,family, username, password)
             CustomerService.save(customer)
             return True, "Customer Saved!"
         except Exception as e:
             return False, str(e)
 
     @classmethod
-    def edit(cls, customer_id, name, username, password):
+    def edit(cls, customer_id, name,family, username, password):
         try:
-            customer = Customer(customer_id, name, username, password)
+            customer = Customer(customer_id, name,family, username, password)
             CustomerService.edit(customer)
             return True, "Customer Edited!"
         except Exception as e:
@@ -52,3 +52,13 @@ class CustomerController:
             return True, CustomerService.find_by_username(username)
         except Exception as e:
             return False, str(e)
+
+    @classmethod
+    def find_by_username_and_password(cls, username, password):
+        try:
+            return True, CustomerService.find_by_username_and_password(username, password)
+        except Exception as e:
+            return False, str(e)
+
+
+CustomerController.save("ali", "alipour", "ali","a123")
