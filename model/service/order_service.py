@@ -27,4 +27,3 @@ class OrderService:
     @classmethod
     def find_all(cls):
         return cls.repo.find_all()
-
