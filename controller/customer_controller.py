@@ -7,18 +7,18 @@ from model.service.customer_service import CustomerService
 class CustomerController:
 
     @classmethod
-    def save(cls, name,family, username, password):
+    def save(cls, name, family, username, password):
         try:
-            customer = Customer(None, name,family, username, password)
+            customer = Customer(None, name, family, username, password)
             CustomerService.save(customer)
             return True, "Customer Saved!"
         except Exception as e:
             return False, str(e)
 
     @classmethod
-    def edit(cls, customer_id, name,family, username, password):
+    def edit(cls, customer_id, name, family, username, password):
         try:
-            customer = Customer(customer_id, name,family, username, password)
+            customer = Customer(customer_id, name, family, username, password)
             CustomerService.edit(customer)
             return True, "Customer Edited!"
         except Exception as e:
