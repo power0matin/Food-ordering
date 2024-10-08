@@ -1,7 +1,7 @@
 #customer - Aida Shams
 #UNFINISHED
 from model.entity.base import Base
-from model.tools.customer_validation import CustomerValidation
+from model.tools. validation import Validation
 from sqlalchemy import Column, Integer, String
 
 
@@ -31,7 +31,7 @@ class Customer(Base):
 
     @id.setter
     def id(self, id):
-        self._id = CustomerValidation.id_validator(id, "Invalid Id")
+        self._id = Validation.id_validator(id, "Invalid Id")
 
 
     @property
@@ -40,7 +40,7 @@ class Customer(Base):
 
     @name.setter
     def name(self, name):
-        self._name = CustomerValidation.name_validator(name, "Invalid Name!")
+        self._name = Validation.name_validator(name, "Invalid Name!")
 
 
     @property
@@ -49,7 +49,7 @@ class Customer(Base):
 
     @family.setter
     def family(self, family):
-        self._family = CustomerValidation.family_validator(family, "Invalid Family!")
+        self._family = Validation.family_validator(family, "Invalid Family!")
 
     @property
     def email(self):
@@ -57,7 +57,7 @@ class Customer(Base):
 
     @email.setter
     def email(self, email):
-       self._email = CustomerValidation.email_validator(email, "Invalid Email!")
+       self._email = Validation.email_validator(email, "Invalid Email!")
 
 
     @property
@@ -66,7 +66,7 @@ class Customer(Base):
 
     @phone.setter
     def phone(self, phone):
-        self._phone = CustomerValidation.phone_validator(phone, "Invalid Phone!")
+        self._phone = Validation.phone_validator(phone, "Invalid Phone!")
 
 
     @property
@@ -75,7 +75,7 @@ class Customer(Base):
 
     @username.setter
     def username(self, username):
-        self._username = CustomerValidation.username_validator(username, "Invalid Username!")
+        self._username = Validation.username_validator(username, "Invalid Username!")
 
 
     @property
@@ -84,4 +84,4 @@ class Customer(Base):
 
     @password.setter
     def password(self, password):
-        self._password = CustomerValidation.password_validator(password, "Invalid Password!")
+        self._password = Validation.password_validator(password, "Invalid Password!")
