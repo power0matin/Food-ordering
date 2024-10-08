@@ -1,9 +1,9 @@
-from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
 from sqlalchemy_utils import create_database, database_exists
 from model.entity.base import Base
 
-# تنظیمات اتصال به دیتابیس
+# Database connection settings
 connection_string = "mysql+pymysql://root:root123@localhost:3306/mft"
 if not database_exists(connection_string):
     create_database(connection_string)
@@ -20,51 +20,49 @@ class CrudRepository:
         self.class_name = class_name
 
     def save(self, entity):
-        try:
-            session.add(entity)
-            session.commit()
-            session.refresh(entity)
-            return entity
-        except Exception as e:
-            session.rollback()
-            raise e
+        session.add(entity)
+        print("AF ", entity)  # Print the entity being added
+        session.commit()
+        session.refresh(entity)
+        return entity
 
     def edit(self, entity):
-        try:
-            session.merge(entity)
-            session.commit()
-            return entity
-        except Exception as e:
-            session.rollback()
-            raise e
+        session.merge(entity)
+        session.commit()
+        return entity
 
-    def remove(self, admin_id):
-        try:
-            entity = session.get(self.class_name, admin_id)
+    def remove(self, id):
+        entity = session.get(self.class_name, id)
+        if entity:  # Check if entity exists
             session.delete(entity)
             session.commit()
             return entity
-        except Exception as e:
-            session.rollback()
-            raise e
+        return None  # Return None if entity is not found
 
     def find_all(self):
-        try:
-            entity_list = session.query(self.class_name).all()
-            return entity_list
-        except Exception as e:
-            raise e
+        entity_list = session.query(self.class_name).all()
+        return entity_list
 
-    def find_by_id(self, admin_id):
-        try:
-            entity = session.get(self.class_name, admin_id)
-            return entity
-        except Exception as e:
-            raise e
+    def find_by_id(self, id):
+        entity = session.get(self.class_name, id)
+        return entity
 
     def find_by(self, find_statement):
-        try:
-            entity = session.query(self.class_name).filter(find_statement).all()
-            return entity
-        except Exception as e:
-            raise e
+        entity = session.query(self.class_name).filter(find_statement).all()
+        return entity
+
+    # New methods to find Admins by specific fields
+    def find_by_username(self, username):
+        return self.find_by(Admin.username == username)
+
+    def find_by_access_level(self, access_level):
+        return self.find_by(Admin.access_level == access_level)
+
+    def find_by_name(self, name):
+        return self.find_by(Admin._name == name)
+
+    def find_by_family(self, family):
+        return self.find_by(Admin._family == family)
+
+    def find_by_credentials(self, username, password):
+        return self.find_by((Admin.username == username) & (Admin.password == password))
