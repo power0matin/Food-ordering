@@ -6,7 +6,7 @@
 
 ## Model Implementation (models/)
 - [x] Create `admin.py` (متین شاه‌آبادی)
-- [ ] Create `customer.py` (آیدا شمس)
+- [x] Create `customer.py` (آیدا شمس)
 - [ ] Create `food.py` (بردیا زاغری)
 - [ ] Create `drink.py` (مینا رضایی)
 - [ ] Create `order.py` (امیر شایان امامی‌پور)
