@@ -1,5 +1,5 @@
 import re
-
+#using staticmethod
 
 class Validation:
     @staticmethod
