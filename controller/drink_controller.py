@@ -1,72 +1,67 @@
-from model.service.drink_service import _service, drink
-import DrinkService
+from model.service.drink_service import DrinkService
+from model.entity.drink import Drink
 
 
-class DrinkController:
+class DrinkController(Base):
 
-    @staticmethod
-    def add_drink(request_data):
+    @classmethod
+    def add_drink(cls, title, price, duration, size, status=True):
         try:
-            title = request_data.get('title')
-            price = request_data.get('price')
-            duration = request_data.get('duration')
-            status = request_data.get('status', True)
-            size = request_data.get('size')
-
-            drink = DrinkService.save(title, price, duration, status,size)
-            return {"success": True, "food": food}, 201
+            drink =Drink(None, title, price, duration, size, status)
+            DrinkService.save(drink)
+            return True, "Drink saved successfully"
         except Exception as e:
-            return {"success": False, "error": str(e)}, 400
+            return False, str(e)
 
-    @staticmethod
-    def update_drink(drink_id, request_data):
-        try:
-
-            drink = DrinkService.find_by_id(drink_id)
-            if not food:
-                return {"success": False, "error": "drink not found"}, 404
-
-            drink.title = request_data.get('title', drink.title)
-            drink.price = request_data.get('price', drink.price)
-            drink.duration = request_data.get('duration', drink.duration)
-            drink.status = request_data.get('status', drink.status)
-            drink.size = request_data.get('size', drink.size)
-
-            updated_drink = DrinkService.edit(drink)
-            return {"success": True, "drink": updated_drink}, 200
-        except Exception as e:
-            return {"success": False, "error": str(e)}, 400
-
-    @staticmethod
-    def delete_drink(drink_id):
-        try:
-            DrinkService.remove(drink_id)
-            return {"success": True, "message": "Drink deleted successfully"}, 200
-        except Exception as e:
-            return {"success": False, "error": str(e)}, 400
-
-    @staticmethod
-    def get_drink_by_id(drink_id):
+    @classmethod
+    def update_drink(cls, drink_id, title=None, price=None, duration=None, size=None, status=None):
         try:
             drink = DrinkService.find_by_id(drink_id)
             if not drink:
-                return {"success": False, "error": "Drink not found"}, 404
-            return {"success": True, "drink": drink}, 200
-        except Exception as e:
-            return {"success": False, "error": str(e)}, 400
+                return False, "Drink not found"
 
-    @staticmethod
-    def get_all_drink():
+            drink.title = title if title is not None else drink.title
+            drink.price = price if price is not None else drink.price
+            drink.duration = duration if duration is not None else drink.duration
+            drink.size = size if size is not None else drink.size
+            drink.status = status if status is not None else drink.status
+
+            DrinkService.edit(drink)
+            return True, "drink updated successfully"
+        except Exception as e:
+            return False, str(e)
+
+    @classmethod
+    def delete_drink(cls, drink_id):
+        try:
+            Service.remove(drink_id)
+            drinkService.remove(drink_id)
+            return True, "Drink deleted successfully"
+        except Exception as e:
+            return False, str(e)
+
+    @classmethod
+    def get_drink_by_id(cls, drink_id):
+        try:
+            drink = Drinkservice.find_by_id(drink_id)
+            if not drink:
+                return False, "Drink not found"
+            return True, drink
+        except Exception as e:
+            return False, str(e)
+
+    @classmethod
+    def get_all_drinks(cls):
         try:
             drinks = DrinkService.find_all()
-            return {"success": True, "drinks": drinks}, 200
+            return True, drink
         except Exception as e:
-            return {"success": False, "error": str(e)}, 400
+            return False, str(e)
 
-    @staticmethod
-    def search_food_by_title(title):
+    @classmethod
+    def search_drink_by_title(cls, title):
         try:
             drinks = DrinkService.find_by_title(title)
-            return {"success": True, "drinks": drinks}, 200
+            return True, drinks
         except Exception as e:
-            return {"success": False, "error": str(e)}, 400
+            return False, str(e)
