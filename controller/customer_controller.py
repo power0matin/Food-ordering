@@ -4,62 +4,50 @@
 
 from model.entity.customer import Customer
 from model.service.customer_service import CustomerService
+from model.tools.decorators import exception_handling
+
 
 class CustomerController:
 
     @classmethod
+    @exception_handling
     def save(cls, name, family, email, phone, username, password):
-        try:
-            customer = Customer(None, name, family, email, phone, username, password)
-            CustomerService.save(customer)
-            return True, "Customer Saved!"
-        except Exception as e:
-            return False, str(e)
+        customer = Customer(None, name, family, email, phone, username, password)
+        CustomerService.save(customer)
+        return True, "Customer Saved!"
 
     @classmethod
+    @exception_handling
     def edit(cls, id, name, family, email, phone, username, password):
-        try:
-            customer = Customer(id, name, family, email, phone, username, password)
-            CustomerService.edit(customer)
-            return True, "Customer Edited!"
-        except Exception as e:
-            return False, str(e)
+        customer = Customer(id, name, family, email, phone, username, password)
+        CustomerService.edit(customer)
+        return True, "Customer Edited!"
 
     @classmethod
+    @exception_handling
     def remove(cls, id):
-        try:
-            CustomerService.remove(id)
-            return True, "Customer Removed!"
-        except Exception as e:
-            return False, str(e)
+        CustomerService.remove(id)
+        return True, "Customer Removed!"
 
     @classmethod
+    @exception_handling
     def find_all(cls):
-        try:
-            return True, CustomerService.find_all()
-        except Exception as e:
-            return False, str(e)
+        return True, CustomerService.find_all()
 
     @classmethod
+    @exception_handling
     def find_by_id(cls, id):
-        try:
-            return True, CustomerService.find_by_id(id)
-        except Exception as e:
-            return False, str(e)
+        return True, CustomerService.find_by_id(id)
 
     @classmethod
+    @exception_handling
     def find_by_username(cls, username):
-        try:
-            return True, CustomerService.find_by_username(username)
-        except Exception as e:
-            return False, str(e)
+        return True, CustomerService.find_by_username(username)
+
 #note to me: check the following def
     @classmethod
+    @exception_handling
     def find_by_username_and_password(cls, username, password):
-        try:
-            return True, CustomerService.find_by_username_and_password(username, password)
-        except Exception as e:
-            return False, str(e)
-
+        return True, CustomerService.find_by_username_and_password(username, password)
 
 #CustomerController.save("ali", "alipour", "ali","a123")
