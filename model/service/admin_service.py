@@ -36,5 +36,9 @@ class AdminService:
         return cls.repo.find_by(Admin.username == username)
 
     @classmethod
-    def find_by_password(cls, password):
-        return cls.repo.find_by(Admin.password == password)
+    def find_by_username_password(cls, username, password):
+        return cls.repo.find_by((Admin.username == username) & (Admin.password == password))
+
+    @classmethod
+    def find_by_access_level(cls, access_level):
+        return cls.repo.find_by(Admin.access_level == access_level)
