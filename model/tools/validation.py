@@ -1,5 +1,5 @@
 import re
-
+#using staticmethod
 
 class Validation:
     @staticmethod
@@ -46,10 +46,14 @@ class Validation:
 
     @staticmethod
     def email_validator(email, message):
-        if re.match(r"^[a-zA-Z0-9]\w+@(gmail|yahoo).com$", email, re.I):
+        if re.match(r"^[a-zA-Z0-9]\w+@(gmail|yahoo).com$", email):
             return email
+        else:
+            return ValueError(message)
 
     @staticmethod
     def phone_validator(phone, message):
         if type(phone) == str and re.match(r"^09[0-9]{9}$", phone):
             return phone
+        else:
+            return ValueError(message)

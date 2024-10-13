@@ -1,5 +1,6 @@
 #costumer controller - Aida Shams
-#same error from external libraries!!!
+#using class method
+#can't run : same error from external libraries!!!
 
 from model.entity.customer import Customer
 from model.service.customer_service import CustomerService
@@ -52,7 +53,7 @@ class CustomerController:
             return True, CustomerService.find_by_username(username)
         except Exception as e:
             return False, str(e)
-
+#note to me: check the following def
     @classmethod
     def find_by_username_and_password(cls, username, password):
         try:
@@ -61,4 +62,4 @@ class CustomerController:
             return False, str(e)
 
 
-CustomerController.save("ali", "alipour", "ali","a123")
+#CustomerController.save("ali", "alipour", "ali","a123")

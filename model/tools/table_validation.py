@@ -33,7 +33,7 @@ class TableValidation:
 
     @staticmethod
     def is_empty_validator(is_empty,message):
-        if type(is_empty) == bool:
+        if type(is_empty) == bool and is_empty == True:
             return is_empty
         else:
             raise ValueError(message)

@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, String, Boolean
 from model.entity.base import Base
 from model.tools.table_validation import TableValidation
-class table(Base):
+class Table(Base):
     __tablename__ = 'table_tbl'
     _id = Column(Integer, primary_key=True, autoincrement=True)
     _title = Column("title", String, nullable=False)
@@ -50,7 +50,7 @@ class table(Base):
 
     @property
     def is_empty(self):
-        return
+        return self._is_empty
 
     @is_empty.setter
     def is_empty(self, is_empty):

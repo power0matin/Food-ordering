@@ -4,6 +4,7 @@ from model.entity.base import Base
 from model.tools. validation import Validation
 from sqlalchemy import Column, Integer, String
 
+#Customer : id, Name, Family, Email, Phone, Username, Password
 
 class Customer(Base):
     __tablename__ = "customer_tbl"
