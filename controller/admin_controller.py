@@ -8,7 +8,7 @@ class AdminController:
     @classmethod
     @exception_handling
     def save(cls, name, family, username, password, access_level):
-        admin = Admin(name, family, username, password, access_level)
+        admin = Admin(None, name, family, username, password, access_level)
         AdminService.save(admin)
         return "Admin saved"
 

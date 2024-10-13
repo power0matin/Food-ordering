@@ -39,7 +39,7 @@ class Validation:
 
     @staticmethod
     def access_level_validator(access_level, message):
-        if type(access_level) == int and 0 <= access_level <= 10:
+        if type(access_level) == int and 0 <= access_level <= 10000:
             return access_level
         else:
             return ValueError(message)
