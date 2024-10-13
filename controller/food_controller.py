@@ -1,71 +1,67 @@
 from model.service.food_service import FoodService
+from model.entity.food import Food
 
 
 class FoodController:
 
-    @staticmethod
-    def add_food(request_data):
+    @classmethod
+    def add_food(cls, title, price, duration, description, size, status=True):
         try:
-            title = request_data.get('title')
-            price = request_data.get('price')
-            duration = request_data.get('duration')
-            description = request_data.get('description')
-            status = request_data.get('status', True)
-
-            food = FoodService.save(title, price, duration, description, status)
-            return {"success": True, "food": food}, 201
+            food = Food(None, title, price, duration, description, size, status)
+            FoodService.save(food)
+            return True, "Food saved successfully"
         except Exception as e:
-            return {"success": False, "error": str(e)}, 400
+            return False, str(e)
 
-    @staticmethod
-    def update_food(food_id, request_data):
+    @classmethod
+    def update_food(cls, food_id, title=None, price=None, duration=None, description=None, size=None, status=None):
         try:
-
             food = FoodService.find_by_id(food_id)
             if not food:
-                return {"success": False, "error": "Food not found"}, 404
+                return False, "Food not found"
 
-            food.title = request_data.get('title', food.title)
-            food.price = request_data.get('price', food.price)
-            food.duration = request_data.get('duration', food.duration)
-            food.description = request_data.get('description', food.description)
-            food.status = request_data.get('status', food.status)
+            food.title = title if title is not None else food.title
+            food.price = price if price is not None else food.price
+            food.duration = duration if duration is not None else food.duration
+            food.description = description if description is not None else food.description
+            food.size = size if size is not None else food.size
+            food.status = status if status is not None else food.status
 
-            updated_food = FoodService.edit(food)
-            return {"success": True, "food": updated_food}, 200
+            FoodService.edit(food)
+            return True, "Food updated successfully"
         except Exception as e:
-            return {"success": False, "error": str(e)}, 400
+            return False, str(e)
 
-    @staticmethod
-    def delete_food(food_id):
+    @classmethod
+    def delete_food(cls, food_id):
         try:
             FoodService.remove(food_id)
-            return {"success": True, "message": "Food deleted successfully"}, 200
+            return True, "Food deleted successfully"
         except Exception as e:
-            return {"success": False, "error": str(e)}, 400
+            return False, str(e)
 
-    @staticmethod
-    def get_food_by_id(food_id):
+    @classmethod
+    def get_food_by_id(cls, food_id):
         try:
             food = FoodService.find_by_id(food_id)
             if not food:
-                return {"success": False, "error": "Food not found"}, 404
-            return {"success": True, "food": food}, 200
+                return False, "Food not found"
+            return True, food
         except Exception as e:
-            return {"success": False, "error": str(e)}, 400
+            return False, str(e)
 
-    @staticmethod
-    def get_all_foods():
+    @classmethod
+    def get_all_foods(cls):
         try:
             foods = FoodService.find_all()
-            return {"success": True, "foods": foods}, 200
+            return True, foods
         except Exception as e:
-            return {"success": False, "error": str(e)}, 400
+            return False, str(e)
 
-    @staticmethod
-    def search_food_by_title(title):
+    @classmethod
+    def search_food_by_title(cls, title):
         try:
             foods = FoodService.find_by_title(title)
-            return {"success": True, "foods": foods}, 200
+            return True, foods
         except Exception as e:
-            return {"success": False, "error": str(e)}, 400
+            return False, str(e)
