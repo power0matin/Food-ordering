@@ -12,7 +12,7 @@ engine = create_engine(connection_string)
 Base.metadata.drop_all(engine)
 Base.metadata.create_all(engine)
 
-AdminController.save()
+AdminController.save("matin", "shahabadi", "powermatin", "abcd1234", "1")
 
 u = AdminController.find_by_id(1)
 print(u)
