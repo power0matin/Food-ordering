@@ -1,6 +1,8 @@
 from model.service.table_service import TableService
 from model.entity.table import Table
 
+#error SDK is not defined
+
 class TableController:
 
     @classmethod
@@ -40,5 +42,18 @@ class TableController:
     def find_by_id(cls, id):
         try:
             return True,TableService.find_by_id(id)
+        except Exception as e:
+            return False, str(e)
+
+    @classmethod
+    def find_empty_table(cls):
+        try:
+            return True, TableService.find_empty_table()
+        except Exception as e:
+            return False, str(e)
+    @classmethod
+    def find_by_number(cls, number):
+        try:
+            return True,TableService.find_by_number(number)
         except Exception as e:
             return False, str(e)
