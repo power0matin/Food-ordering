@@ -7,7 +7,7 @@ class Table(Base):
     _title = Column("title", String, nullable=False)
     _location = Column("location", nullable=False)
     _number = Column("number", Integer, nullable=False)
-    _is_empty = Column("empty", Boolean, default=True)
+    _is_empty = Column("empty", Boolean)
 
     def __init__(self, id, title, location, number, is_empty):
         self.id = id
