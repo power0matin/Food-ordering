@@ -1,6 +1,7 @@
 from model.entity.admin import Admin
 from model.repository.crud_repository import CrudRepository
 
+
 class AdminService:
     repo = CrudRepository(Admin)
 
