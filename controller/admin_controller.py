@@ -25,7 +25,6 @@ class AdminController:
         AdminService.remove(id)
         return "Admin Removed."
 
-
     @classmethod
     @exception_handling
     def find_all(cls):
@@ -41,12 +40,10 @@ class AdminController:
     def find_by_username(cls, username):
         return True, AdminService.find_by_username(username)
 
-
     @classmethod
     @exception_handling
     def find_by_username_password(cls, username, password):
         return True, AdminService.find_by_username_password(username, password)
-
 
     @classmethod
     @exception_handling
