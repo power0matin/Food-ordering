@@ -1,8 +1,9 @@
+from model.entity.base import Base
 from model.tools.validation import Validation
 from sqlalchemy import Column, Integer, String, Boolean
 
 
-class Admin:
+class Admin(Base):
     __tablename__ = "admin_tbl"
 
     _id = Column("id", Integer, primary_key=True, autoincrement=True)
@@ -26,7 +27,7 @@ class Admin:
 
     @id.setter
     def id(self, id):
-        self._id = Validation.id_validator(id, "Invalid Id")
+        self._id = id
 
     @property
     def name(self):
@@ -66,4 +67,5 @@ class Admin:
 
     @access_level.setter
     def access_level(self, access_level):
-        self._access_level = Validation.access_level_validator(access_level, "Invalid Level")
+        # self._access_level = Validation.access_level_validator(access_level, "Invalid Level")
+        self._access_level = access_level

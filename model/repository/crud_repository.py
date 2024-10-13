@@ -9,7 +9,8 @@ connection_string = "mysql+pymysql://root:root123@localhost:3306/mft"
 if not database_exists(connection_string):
     create_database(connection_string)
 
-engine = create_engine(connection_string, echo=True)
+engine = create_engine(connection_string)
+Base.metadata.drop_all(engine)
 Base.metadata.create_all(engine)
 
 Session = sessionmaker(bind=engine)
@@ -40,6 +41,7 @@ class CrudRepository:
         return None
 
     def find_all(self):
+        print(session.query(self.class_name))
         entity_list = session.query(self.class_name).all()
         return entity_list
 
