@@ -47,3 +47,11 @@
 
 ## Documentation
 - [ ] Add comments to all functions and classes (همه)
+
+
+
+- [ ] Create app.py
+- [ ] Add Create Database to app
+- [ ] Edit CrudRepository
+- [ ] Add decorators, logger to model.tools
+- [ ] Update Controllers
