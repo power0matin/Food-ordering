@@ -29,3 +29,7 @@ class DrinkService:
     @classmethod
     def find_by_title(cls, title):
         return cls.repo.find_by(drink._title.like(f"%{title}%"))
+
+    @classmethod
+    def search_drink_by_title_and_status(cls, title, status):
+        return cls.repo.find_by(Drink.title == title and Drink.status == status)

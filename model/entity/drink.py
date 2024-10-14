@@ -12,8 +12,8 @@ class Drink(Base):
     _size = Column("size", String(10), nullable=False)
     _available = Column("available", Boolean, default=True)
 
-    def __init__(self, drink_id, title, price, duration, size, available=True):
-        self.drink_id = drink_id
+    def __init__(self, id, title, price, duration, size, available=True):
+        self.id = id
         self.title = title
         self.price = price
         self.duration = duration
@@ -21,12 +21,12 @@ class Drink(Base):
         self.available = available
 
     @property
-    def drink_id(self):
+    def id(self):
         return self._id
 
-    @drink_id.setter
-    def drink_id(self, drink_id):
-        self._id = drink_id
+    @id.setter
+    def id(self, id):
+        self._id = id
 
     @property
     def title(self):
