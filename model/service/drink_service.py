@@ -1,5 +1,8 @@
-class drink:
-    repo = CrudRepository(drink)
+from model.entity.drink import Drink
+from model.repository.crud_repository import CrudRepository
+
+class DrinkService:
+    repo = CrudRepository(Drink)
 
     @classmethod
     def save(cls, title, price, duration, status=True):

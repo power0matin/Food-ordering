@@ -4,18 +4,11 @@ from sqlalchemy_utils import create_database, database_exists
 from model.entity.admin import Admin
 from model.entity.base import Base
 
-# Database connection settings
-connection_string = "mysql+pymysql://root:root123@localhost:3306/mft"
-if not database_exists(connection_string):
-    create_database(connection_string)
-
-engine = create_engine(connection_string)
-Base.metadata.drop_all(engine)
-Base.metadata.create_all(engine)
+engine = create_engine("mysql+pymysql://root:root123@localhost:3306/mft")
 
 Session = sessionmaker(bind=engine)
 session = Session()
-
+# Database connection settings
 
 class CrudRepository:
     def __init__(self, class_name):

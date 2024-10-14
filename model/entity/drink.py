@@ -2,7 +2,7 @@ from sqlalchemy import Column, Integer, String, Float, Boolean
 from model.entity.base import Base
 from model.tools.drink_validation import DrinkValidation
 
-class drink(Base):
+class Drink(Base):
     __tablename__ = "drink_tbl"
 
     _id = Column("id", Integer, primary_key=True, autoincrement=True)
