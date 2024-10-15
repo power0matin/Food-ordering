@@ -1,6 +1,4 @@
-from model.entity.base import Base
 from model.entity import *
-from sqlalchemy import Column, Integer, String, Boolean
 
 class Table():
     __tablename__ = "table_tbl"
