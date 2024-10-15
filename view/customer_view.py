@@ -21,10 +21,10 @@ class CustomerView:
         status, message = CustomerController.save(
             self.name.get(),
             self.family.get(),
-            self.email.set(),
-            self.phone.set(),
-            self.username.set(),
-            self.password.set()
+            self.email.set(""),
+            self.phone.set(""),
+            self.username.set(""),
+            self.password.set("")
         )
         if status:
             msg.showinfo("Saved!", message)
@@ -37,10 +37,10 @@ class CustomerView:
             self.id.get(),
             self.name.get(),
             self.family.get(),
-            self.email.set(),
-            self.phone.set(),
-            self.username.set(),
-            self.password.set()
+            self.email.set(""),
+            self.phone.set(""),
+            self.username.set(""),
+            self.password.set("")
         )
         if status:
             msg.showinfo("Edited!", message)
