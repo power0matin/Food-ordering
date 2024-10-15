@@ -52,9 +52,8 @@
 - [ ] Add comments to all functions and classes (همه)
 
 
-
-- [ ] Create app.py
-- [ ] Add Create Database to app
-- [ ] Edit CrudRepository
-- [ ] Add decorators, logger to model.tools
+- [x] Create app.py
+- [x] Add Create Database to app
+- [x] Edit CrudRepository
+- [x] Add decorators, logger to model.tools
 - [ ] Update Controllers
