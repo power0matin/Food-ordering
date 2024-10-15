@@ -84,28 +84,28 @@ class CustomerView:
         win = Tk()
         win.title("Customer View")
         win.resizable(False, False)
-        win.geometry("950x450")
+        win.geometry("900x400")
 
-        self.id = LabelWithEntry(win, "Id", 20, 20, data_type="int", state="readonly")
-        self.name = LabelWithEntry(win, "Name", 20, 60)
-        self.family = LabelWithEntry(win, "Family", 20, 100)
-        self.email = LabelWithEntry(win, "Email", 20, 140)
-        self.phone = LabelWithEntry(win, "Phone", 20, 140)
-        self.username = LabelWithEntry(win, "Username", 20, 140)
-        self.password = LabelWithEntry(win, "Password", 20, 140)
+        self.id = LabelWithEntry(win, "Id", 30, 20, data_type="int", state="readonly")
+        self.name = LabelWithEntry(win, "Name", 30, 60)
+        self.family = LabelWithEntry(win, "Family", 30, 100)
+        self.email = LabelWithEntry(win, "Email", 30, 140)
+        self.phone = LabelWithEntry(win, "Phone", 30, 180)
+        self.username = LabelWithEntry(win, "Username", 30, 220)
+        self.password = LabelWithEntry(win, "Password", 30, 260)
 
-        self.table = Table(win, ["Id", "Name", "Family", "Email", "Phone", "Username", "Password"], [60,
-                                                                                                     100, 100, 100, 100,
-                                                                                                     100, 100], 250, 20, self.table_click)
+        self.table = Table(win, ["Id", "Name", "Family", "Email", "Phone", "Username", "Password"], [30,
+                                                                                                     70, 70, 135, 100,
+                                                                                                     70, 100], 250, 20, self.table_click)
         self.table.refresh_table(CustomerController.find_all()[1])
 
-        Button(win, text="Save", width=10, command=self.save_click).place(x=100, y=180)
-        Button(win, text="Edit", width=10, command=self.edit_click).place(x=100, y=210)
-        Button(win, text="Remove", width=10, command=self.remove_click).place(x=100, y=240)
-        Button(win, text="Find By Id", width=10, command=self.find_by_id_click).place(x=100, y=270)
-        Button(win, text="Find All", width=10, command=self.find_all_click).place(x=200, y=270)
-        Button(win, text="Find By Username", width=15, command=self.find_by_username_click).place(x=200, y=290)
-        Button(win, text="Find By Username & Password", width=30, command=self.find_by_username_and_password_click).place(x=200,
+        Button(win, text="Save", width=10, command=self.save_click).place(x=300, y=260)
+        Button(win, text="Edit", width=10, command=self.edit_click).place(x=400, y=260)
+        Button(win, text="Remove", width=10, command=self.remove_click).place(x=500, y=260)
+        Button(win, text="Find By Id", width=10, command=self.find_by_id_click).place(x=600, y=260)
+        Button(win, text="Find All", width=10, command=self.find_all_click).place(x=700, y=260)
+        Button(win, text="Find By Username", width=15, command=self.find_by_username_click).place(x=350, y=320)
+        Button(win, text="Find By Username & Password", width=30, command=self.find_by_username_and_password_click).place(x=520,
                                                                                                                 y=320)
 #COULD NOT TEST!!!!!! sqlalchemy error again!
         self.reset_form()
