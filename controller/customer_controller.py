@@ -1,5 +1,5 @@
-#costumer controller - Aida Shams
-#using class method
+# costumer controller - Aida Shams
+# using class method
 
 from model.entity.customer import Customer
 from model.service.customer_service import CustomerService
@@ -43,10 +43,10 @@ class CustomerController:
     def find_by_username(cls, username):
         return True, CustomerService.find_by_username(username)
 
-#note to me: check the following def
+    # note to me: check the following def
     @classmethod
     @exception_handling
     def find_by_username_and_password(cls, username, password):
         return True, CustomerService.find_by_username_and_password(username, password)
 
-#CustomerController.save("ali", "alipour", "ali","a123")
+# CustomerController.save("ali", "alipour", "ali","a123")
