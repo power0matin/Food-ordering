@@ -108,10 +108,13 @@ class CustomerView:
         self.username = LabelWithEntry(win, "Username", 30, 220)
         self.password = LabelWithEntry(win, "Password", 30, 260)
 
-        self.table = Table(win, ["Id", "Name", "Family", "Email", "Phone", "Username", "Password"], [30,
-                                                                                                     70, 70, 135, 100,
-                                                                                                     70, 100], 250, 20,
-                           self.table_click)
+        self.table = Table(win,
+                           ["Id", "Name", "Family", "Email", "Phone", "Username", "Password"],
+                           [30, 70, 70, 135, 100, 70, 100],
+                           250,
+                           20,
+                           self.table_click
+                           )
         self.table.refresh_table(CustomerController.find_all()[1])
 
         Button(win, text="Save", width=10, command=self.save_click).place(x=300, y=260)

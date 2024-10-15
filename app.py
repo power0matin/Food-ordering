@@ -21,3 +21,5 @@ print(u)
 
 CustomerController.save("aida", "shams", "asHe77@gmail.com", "09114567893", "aidaaa", "aida1234")
 CustomerView()
+
+PaymentView()
