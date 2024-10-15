@@ -26,7 +26,7 @@ class Order(Base):
     _table = Column("table", String(20), ForeignKey("table_tbl.title"))
     table = relationship("table", back_populates="order_table")
 
-    def __init__(self, order_id, amount, discount,  pure_amount, customer, food, drink, table):
+    def __init__(self, order_id, amount, discount, pure_amount, customer, food, drink, table):
         self.order_id = order_id
         self._amount = amount
         self._discount = discount
