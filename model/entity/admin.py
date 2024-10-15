@@ -1,6 +1,4 @@
-from model.entity.base import Base
-from model.tools.validation import Validation
-from sqlalchemy import Column, Integer, String, Boolean
+from model.entity import *
 
 
 class Admin(Base):

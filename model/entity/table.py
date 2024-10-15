@@ -1,6 +1,5 @@
-from sqlalchemy import Column, Integer, String, Boolean
-from model.entity.base import Base
-from model.tools.table_validation import TableValidation
+from model.entity import *
+
 class Table(Base):
     __tablename__ = 'table_tbl'
     _id = Column(Integer, primary_key=True, autoincrement=True)

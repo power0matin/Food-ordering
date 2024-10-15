@@ -1,4 +1,4 @@
-from model.entity.admin import Admin
+from model.entity import Admin
 from model.repository.crud_repository import CrudRepository
 
 

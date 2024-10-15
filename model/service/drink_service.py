@@ -1,4 +1,4 @@
-from model.entity.drink import Drink
+from model.entity import Drink
 from model.repository.crud_repository import CrudRepository
 
 class DrinkService:

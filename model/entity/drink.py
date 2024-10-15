@@ -1,6 +1,4 @@
-from sqlalchemy import Column, Integer, String, Float, Boolean
-from model.entity.base import Base
-from model.tools.drink_validation import DrinkValidation
+from model.entity import *
 
 class Drink(Base):
     __tablename__ = "drink_tbl"

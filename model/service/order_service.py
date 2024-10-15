@@ -1,4 +1,4 @@
-from model.entity.order import Order
+from model.entity import Order
 from model.repository.crud_repository import CrudRepository
 
 

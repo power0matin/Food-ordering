@@ -1,8 +1,8 @@
 #customer - Aida Shams
 #UNFINISHED
-from model.entity.base import Base
-from model.tools. validation import Validation
-from sqlalchemy import Column, Integer, String
+from model.entity import *
+from model.tools.validation import pattern_validator
+
 
 #Customer : id, Name, Family, Email, Phone, Username, Password
 
@@ -41,16 +41,18 @@ class Customer(Base):
 
     @name.setter
     def name(self, name):
-        self._name = Validation.name_validator(name, "Invalid Name!")
+        self._name = Validation.pattern_validator(name, "^[a-zA-Z\s]{3,}$", "Invalid name")
 
 
     @property
     def family(self):
         return self._family
 
+
     @family.setter
+    @pattern_validator("[a-zA-Z]{3,}", "Invalid Family")
     def family(self, family):
-        self._family = Validation.family_validator(family, "Invalid Family!")
+        self._family = family
 
     @property
     def email(self):

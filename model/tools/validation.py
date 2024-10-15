@@ -1,7 +1,25 @@
 import re
 
 
+def pattern_validator(pattern, message):
+    def inner(function_name):
+        def inner2(self, value):
+            if type(value) == str and re.match(pattern, value):
+                return value
+            else:
+                raise ValueError(message)
+
+
+
 class Validation:
+    @staticmethod
+    def pattern_validator(variable, pattern, message):
+        if type(variable) == str and re.match(pattern, variable):
+            return variable
+        else:
+            raise ValueError(message)
+
+
     @staticmethod
     def id_validator(id, message):
         if isinstance(id, int) and id > 0:
@@ -57,3 +75,5 @@ class Validation:
             return phone
         else:
             return ValueError(message)
+
+

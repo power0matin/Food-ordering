@@ -1,5 +1,7 @@
-from model.entity.table import Table
+from model.entity import Table
 from model.repository.crud_repository import CrudRepository
+
+
 class TableService:
     repo = CrudRepository(Table)
 
@@ -23,7 +25,7 @@ class TableService:
         return cls.repo.find_all()
 
     @classmethod
-    def find_empty_table(cls):
+    def find_empty_table(cls, is_empty):
         return cls.repo.find_by(Table.is_empty == is_empty)
 
     @classmethod

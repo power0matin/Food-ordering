@@ -1,6 +1,4 @@
-from datetime import datetime as dt, datetime
-from sqlalchemy import Column, Integer, Float, String, DateTime
-from model.entity.base import Base
+from model.entity import *
 
 
 class Payment(Base):

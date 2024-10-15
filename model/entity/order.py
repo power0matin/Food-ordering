@@ -1,11 +1,4 @@
-from sqlalchemy.orm import relationship
-
-from model.entity.base import Base
-from sqlalchemy import Column, Integer, DateTime, String, ForeignKey
-from model.entity.customer import Customer
-from model.entity.food import Food
-from model.tools.validation import Validation
-from model.tools.order_validation import OrderValidation
+from model.entity import *
 
 
 class Order(Base):
