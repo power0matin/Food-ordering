@@ -84,15 +84,15 @@ class CustomerView:
         win = Tk()
         win.title("Customer View")
         win.resizable(False, False)
-        win.geometry("950x450")
+        win.geometry("900x400")
 
-        self.id = LabelWithEntry(win, "Id", 25, 20, data_type="int", state="readonly")
-        self.name = LabelWithEntry(win, "Name", 25, 60)
-        self.family = LabelWithEntry(win, "Family", 25, 100)
-        self.email = LabelWithEntry(win, "Email", 25, 140)
-        self.phone = LabelWithEntry(win, "Phone", 25, 180)
-        self.username = LabelWithEntry(win, "Username", 25, 220)
-        self.password = LabelWithEntry(win, "Password", 25, 260)
+        self.id = LabelWithEntry(win, "Id", 30, 20, data_type="int", state="readonly")
+        self.name = LabelWithEntry(win, "Name", 30, 60)
+        self.family = LabelWithEntry(win, "Family", 30, 100)
+        self.email = LabelWithEntry(win, "Email", 30, 140)
+        self.phone = LabelWithEntry(win, "Phone", 30, 180)
+        self.username = LabelWithEntry(win, "Username", 30, 220)
+        self.password = LabelWithEntry(win, "Password", 30, 260)
 
         self.table = Table(win, ["Id", "Name", "Family", "Email", "Phone", "Username", "Password"], [30,
                                                                                                      70, 70, 135, 100,
