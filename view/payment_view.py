@@ -9,7 +9,7 @@ class PaymentView:
         self.id.set(0)
         self.name.set("")
         self.family.set("")
-        self.amount.set("")
+        self.amount.set(0)
         self.payment_type.set("")
         self.description.set("")
         self.order.set("")
@@ -21,7 +21,7 @@ class PaymentView:
         status, message = PaymentController.save(
             self.name.get(),
             self.family.get(),
-            self.amount.set(""),
+            self.amount.set(0),
             self.payment_type.set(""),
             self.description.set(""),
             self.order.set("")
@@ -37,7 +37,7 @@ class PaymentView:
             self.id.get(),
             self.name.get(),
             self.family.get(),
-            self.amount.set(""),
+            self.amount.set(0),
             self.payment_type.set(""),
             self.description.set(""),
             self.order.set("")
@@ -118,7 +118,7 @@ class PaymentView:
 
         self.table = Table(win,
                            ["Id", "Name", "Family", "Amount", "Payment Type", "Description", "Order"],
-                           [30, 70, 70, 135, 100, 70, 100],
+                           [30, 70, 70, 60, 100, 150, 150],
                            250,
                            20,
                            self.table_click
