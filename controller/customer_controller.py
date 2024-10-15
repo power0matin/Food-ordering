@@ -1,6 +1,5 @@
 #costumer controller - Aida Shams
 #using class method
-#can't run : same error from external libraries!!!
 
 from model.entity.customer import Customer
 from model.service.customer_service import CustomerService
