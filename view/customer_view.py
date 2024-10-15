@@ -18,8 +18,14 @@ class CustomerView:
         print(selected_item)
 
     def save_click(self):
-        status, message = CustomerController.save(self.name.get(), self.family.get(), self.email.set(), self.phone.set(),
-                                                  self.username.set(), self.password.set())
+        status, message = CustomerController.save(
+            self.name.get(),
+            self.family.get(),
+            self.email.set(),
+            self.phone.set(),
+            self.username.set(),
+            self.password.set()
+        )
         if status:
             msg.showinfo("Saved!", message)
             self.reset_form()
@@ -27,8 +33,15 @@ class CustomerView:
             msg.showerror("Error: NOT Saved!", message)
 
     def edit_click(self):
-        status, message = CustomerController.edit(self.id.get(), self.name.get(), self.family.get(), self.email.set(),
-                                                  self.phone.set(), self.username.set(), self.password.set())
+        status, message = CustomerController.edit(
+            self.id.get(),
+            self.name.get(),
+            self.family.get(),
+            self.email.set(),
+            self.phone.set(),
+            self.username.set(),
+            self.password.set()
+        )
         if status:
             msg.showinfo("Edited!", message)
             self.reset_form()
