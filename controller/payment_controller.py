@@ -33,3 +33,18 @@ class CustomerController:
     @exception_handling
     def find_by_id(cls, id):
         return True, PaymentService.find_by_id(id)
+
+    @classmethod
+    @exception_handling
+    def find_by_payment_type(cls, payment_type):
+        return True, PaymentService.find_by_payment_type(payment_type)
+
+    @classmethod
+    @exception_handling
+    def find_by_amount(cls, amount):
+        return True, PaymentService.find_by_amount(amount)
+
+    @classmethod
+    @exception_handling
+    def find_by_order(cls, order):
+        return True, PaymentService.find_by_order(order)
