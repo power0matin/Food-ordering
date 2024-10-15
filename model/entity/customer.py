@@ -1,10 +1,7 @@
 #customer - Aida Shams
-#UNFINISHED
+#Customer : id, Name, Family, Email, Phone, Username, Password
 from model.entity import *
 from model.tools.validation import pattern_validator
-
-
-#Customer : id, Name, Family, Email, Phone, Username, Password
 
 class Customer(Base):
     __tablename__ = "customer_tbl"
