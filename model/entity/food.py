@@ -1,5 +1,3 @@
-#under_review
-
 from sqlalchemy import Column, Integer, String, Float, Boolean
 from model.entity.base import Base
 from model.tools.food_validation import FoodValidation
