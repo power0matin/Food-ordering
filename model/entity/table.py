@@ -1,10 +1,10 @@
 from model.entity import *
 
 class Table(Base):
-    __tablename__ = 'table_tbl'
+    __tablename__ = "table_tbl"
     _id = Column(Integer, primary_key=True, autoincrement=True)
-    _title = Column("title", String, nullable=False)
-    _location = Column("location", nullable=False)
+    _title = Column("title", String(30), nullable=False)
+    _location = Column("location", String(30), nullable=False)
     _number = Column("number", Integer, nullable=False)
     _is_empty = Column("empty", Boolean)
 

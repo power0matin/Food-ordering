@@ -1,7 +1,7 @@
 from model.entity import *
 
 
-class Order(Base):
+class Order:
     __tablename__ = "order_table"
 
     _id = Column("id", Integer, primary_key=True, autoincrement=True)
