@@ -1,5 +1,5 @@
 from model.entity import *
-
+from model.tools.validation import pattern_validator
 
 class Admin(Base):
     __tablename__ = "admin_tbl"
@@ -32,38 +32,42 @@ class Admin(Base):
         return self._name
 
     @name.setter
+    @pattern_validator(r"^[a-zA-Z\s]{2,20}$", "Invalid name")
     def name(self, name):
-        self._name = Validation.name_validator(name, "Invalid name")
+        self._name = name
 
     @property
     def family(self):
         return self._family
 
     @family.setter
+    @pattern_validator(r"^[a-zA-Z\s]{2,20}$", "Invalid family")
     def family(self, family):
-        self._family = Validation.family_validator(family, "Invalid family")
+        self._family = family
 
     @property
     def username(self):
         return self._username
 
     @username.setter
+    @pattern_validator(r"^[a-zA-Z\s]{5,}$", "Invalid username")
     def username(self, username):
-        self._username = Validation.username_validator(username, "Invalid username")
+        self._username = username
 
     @property
     def password(self):
         return self._password
 
     @password.setter
+    @pattern_validator(r"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$", "Invalid password")
     def password(self, password):
-        self._password = Validation.password_validator(password, "Invalid password")
+        self._password = password
 
     @property
     def access_level(self):
         return self._access_level
 
     @access_level.setter
+    @pattern_validator(r"^[0-9]{1,}$", "Invalid access_level")
     def access_level(self, access_level):
-        # self._access_level = Validation.access_level_validator(access_level, "Invalid Level")
         self._access_level = access_level

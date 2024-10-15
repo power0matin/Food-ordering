@@ -1,10 +1,7 @@
 #customer - Aida Shams
-#UNFINISHED
+#Customer : id, Name, Family, Email, Phone, Username, Password
 from model.entity import *
 from model.tools.validation import pattern_validator
-
-
-#Customer : id, Name, Family, Email, Phone, Username, Password
 
 class Customer(Base):
     __tablename__ = "customer_tbl"
@@ -40,8 +37,9 @@ class Customer(Base):
         return self._name
 
     @name.setter
+    @pattern_validator(r"^[a-zA-Z\s]{2,20}$", "Invalid Name!")
     def name(self, name):
-        self._name = Validation.pattern_validator(name, "^[a-zA-Z\s]{3,}$", "Invalid name")
+        self._name = name
 
 
     @property
@@ -50,7 +48,7 @@ class Customer(Base):
 
 
     @family.setter
-    @pattern_validator("[a-zA-Z]{3,}", "Invalid Family")
+    @pattern_validator(r"^[a-zA-Z\s]{2,20}$", "Invalid Family!")
     def family(self, family):
         self._family = family
 
@@ -59,8 +57,9 @@ class Customer(Base):
         return self._email
 
     @email.setter
+    @pattern_validator(r"^[a-zA-Z0-9]\w+@(gmail|yahoo).com$", "Invalid Email!")
     def email(self, email):
-       self._email = Validation.email_validator(email, "Invalid Email!")
+       self._email = email
 
 
     @property
@@ -68,8 +67,9 @@ class Customer(Base):
         return self._phone
 
     @phone.setter
+    @pattern_validator(r"^09[0-9]{9}$", "Invalid Phone!")
     def phone(self, phone):
-        self._phone = Validation.phone_validator(phone, "Invalid Phone!")
+        self._phone = phone
 
 
     @property
@@ -77,8 +77,9 @@ class Customer(Base):
         return self._username
 
     @username.setter
+    @pattern_validator(r"^[a-zA-Z0-9]{5,}$", "Invalid Username!")
     def username(self, username):
-        self._username = Validation.username_validator(username, "Invalid Username!")
+        self._username = username
 
 
     @property
@@ -86,5 +87,6 @@ class Customer(Base):
         return self._password
 
     @password.setter
+    @pattern_validator(r"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$", "Invalid Password!")
     def password(self, password):
-        self._password = Validation.password_validator(password, "Invalid Password!")
+        self._password = password
