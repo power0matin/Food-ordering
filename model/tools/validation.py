@@ -1,13 +1,13 @@
 import re
-#using staticmethod
+
 
 class Validation:
     @staticmethod
     def id_validator(id, message):
-        if type(id) == int and re.match(r"^[1-9][0-9]{0,6}$", str(id)):
+        if isinstance(id, int) and id > 0:
             return id
         else:
-            return ValueError(message)
+            ValueError(message)
 
     @staticmethod
     def name_validator(name, message):
