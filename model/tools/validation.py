@@ -5,9 +5,11 @@ def pattern_validator(pattern, message):
     def inner(function_name):
         def inner2(self, value):
             if type(value) == str and re.match(pattern, value):
-                return value
+                function_name(self,value)
             else:
                 raise ValueError(message)
+        return inner2
+    return inner
 
 
 
