@@ -1,7 +1,10 @@
+from model.entity.base import Base
 from model.entity import *
+from sqlalchemy import Column, Integer, String, Boolean
 
-class Table(Base):
+class Table():
     __tablename__ = "table_tbl"
+
     _id = Column(Integer, primary_key=True, autoincrement=True)
     _title = Column("title", String(30), nullable=False)
     _location = Column("location", String(30), nullable=False)
