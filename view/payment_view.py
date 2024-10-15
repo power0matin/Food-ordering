@@ -130,9 +130,9 @@ class PaymentView:
         Button(win, text="Remove", width=10, command=self.remove_click).place(x=500, y=260)
         Button(win, text="Find By Id", width=10, command=self.find_by_id_click).place(x=600, y=260)
         Button(win, text="Find All", width=10, command=self.find_all_click).place(x=700, y=260)
-        Button(win, text="Find By Payment Type", width=15, command=self.find_by_payment_type_click).place(x=350, y=320)
-        Button(win, text="Find By Amount", width=30, command=self.find_by_amount_click).place(x=520, y=320)
-        Button(win, text="Find By Order", width=30, command=self.find_by_order_click).place(x=620, y=320)
+        Button(win, text="Find By Payment Type", width=25, command=self.find_by_payment_type_click).place(x=300, y=320)
+        Button(win, text="Find By Amount", width=15, command=self.find_by_amount_click).place(x=500, y=320)
+        Button(win, text="Find By Order", width=15, command=self.find_by_order_click).place(x=6500, y=320)
         self.reset_form()
 
         win.mainloop()
