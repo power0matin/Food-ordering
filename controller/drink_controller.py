@@ -38,3 +38,8 @@ class DrinkController:
     @exception_handling
     def search_drink_by_title(cls, title):
         return True, DrinkService.find_by_title(title)
+
+    @classmethod
+    @exception_handling
+    def search_drink_by_title_and_status(cls, title, status):
+        return True, DrinkService.search_drink_by_title_and_status(title, status)
