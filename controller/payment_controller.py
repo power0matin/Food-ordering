@@ -2,7 +2,7 @@ from model.entity.payment import Payment
 from model.service.payment_service import PaymentService
 from model.tools.decorators import exception_handling
 
-class CustomerController:
+class PaymentController:
 
     @classmethod
     @exception_handling
