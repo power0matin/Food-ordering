@@ -123,9 +123,7 @@ class CustomerView:
         Button(win, text="Find By Id", width=10, command=self.find_by_id_click).place(x=600, y=260)
         Button(win, text="Find All", width=10, command=self.find_all_click).place(x=700, y=260)
         Button(win, text="Find By Username", width=15, command=self.find_by_username_click).place(x=350, y=320)
-        Button(win, text="Find By Username & Password", width=30,
-               command=self.find_by_username_and_password_click).place(x=520,
-                                                                       y=320)
+        Button(win, text="Find By Username & Password", width=30, command=self.find_by_username_and_password_click).place(x=520, y=320)
         self.reset_form()
 
         win.mainloop()
