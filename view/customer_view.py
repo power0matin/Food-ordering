@@ -18,8 +18,14 @@ class CustomerView:
         print(selected_item)
 
     def save_click(self):
-        status, message = CustomerController.save(self.name.get(), self.family.get(), self.email.set(), self.phone.set(),
-                                                  self.username.set(), self.password.set())
+        status, message = CustomerController.save(
+            self.name.get(),
+            self.family.get(),
+            self.email.set(),
+            self.phone.set(),
+            self.username.set(),
+            self.password.set()
+        )
         if status:
             msg.showinfo("Saved!", message)
             self.reset_form()
@@ -27,8 +33,15 @@ class CustomerView:
             msg.showerror("Error: NOT Saved!", message)
 
     def edit_click(self):
-        status, message = CustomerController.edit(self.id.get(), self.name.get(), self.family.get(), self.email.set(),
-                                                  self.phone.set(), self.username.set(), self.password.set())
+        status, message = CustomerController.edit(
+            self.id.get(),
+            self.name.get(),
+            self.family.get(),
+            self.email.set(),
+            self.phone.set(),
+            self.username.set(),
+            self.password.set()
+        )
         if status:
             msg.showinfo("Edited!", message)
             self.reset_form()
@@ -107,7 +120,6 @@ class CustomerView:
         Button(win, text="Find By Username", width=15, command=self.find_by_username_click).place(x=350, y=320)
         Button(win, text="Find By Username & Password", width=30, command=self.find_by_username_and_password_click).place(x=520,
                                                                                                                 y=320)
-#COULD NOT TEST!!!!!! sqlalchemy error again!
         self.reset_form()
 
         win.mainloop()
