@@ -84,7 +84,7 @@ class CustomerView:
         win = Tk()
         win.title("Customer View")
         win.resizable(False, False)
-        win.geometry("650x450")
+        win.geometry("950x450")
 
         self.id = LabelWithEntry(win, "Id", 20, 20, data_type="int", state="readonly")
         self.name = LabelWithEntry(win, "Name", 20, 60)
@@ -102,10 +102,10 @@ class CustomerView:
         Button(win, text="Save", width=10, command=self.save_click).place(x=100, y=180)
         Button(win, text="Edit", width=10, command=self.edit_click).place(x=100, y=210)
         Button(win, text="Remove", width=10, command=self.remove_click).place(x=100, y=240)
-        Button(win, text="Find By Id", width=15, command=self.find_by_id_click).place(x=100, y=260)
-        Button(win, text="Find All", width=10, command=self.find_all_click).place(x=200, y=260)
+        Button(win, text="Find By Id", width=10, command=self.find_by_id_click).place(x=100, y=270)
+        Button(win, text="Find All", width=10, command=self.find_all_click).place(x=200, y=270)
         Button(win, text="Find By Username", width=15, command=self.find_by_username_click).place(x=200, y=290)
-        Button(win, text="Find By Username & Password", width=20, command=self.find_by_username_and_password_click).place(x=200,
+        Button(win, text="Find By Username & Password", width=30, command=self.find_by_username_and_password_click).place(x=200,
                                                                                                                 y=320)
 #COULD NOT TEST!!!!!! sqlalchemy error again!
         self.reset_form()

@@ -13,9 +13,9 @@ class Customer(Base):
     _name = Column("name", String(20), nullable=False)
     _family = Column("family", String(20), nullable=False)
     _email = Column("email", String(50), nullable=False)
-    _phone = Column("phone", Integer, default=[0])
+    _phone = Column("phone", String(50), nullable=False)
     _username = Column("username", String(20), nullable=False)
-    _password = Column("password", Integer , default="")
+    _password = Column("password", String(20), nullable=False)
 
     def __init__(self, id, name, family, email, phone, username, password):
         self.id = id
@@ -32,7 +32,7 @@ class Customer(Base):
 
     @id.setter
     def id(self, id):
-        self._id = Validation.id_validator(id, "Invalid Id")
+        self._id = id
 
 
     @property
