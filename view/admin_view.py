@@ -1,5 +1,4 @@
 from tkinter import *
-from tkinter import ttk
 import tkinter.messagebox as msg
 from controller.admin_controller import AdminController
 from view.component import LabelWithEntry, Table
