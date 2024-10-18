@@ -20,7 +20,9 @@ class Order(Base, Food, Drink):
     _food_title = Column("food", String(20), ForeignKey('food._title'), nullable=False)
     _drink_title = Column("drink", String(20), ForeignKey('drink._title'), nullable=False)
 
-    def __init__(self, id, pure_amount, discount, amount, ):
+    def __init__(self, id, pure_amount, discount, amount, food, drink):
+        self.drink = drink
+        self.food = food
         self._id = id
         self._pure_amount = pure_amount
         self._discount = discount
