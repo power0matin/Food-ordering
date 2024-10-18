@@ -20,7 +20,7 @@ AdminController.save("matin", "shahabadi", "powermatin", "abcd1234", "1")
 u = AdminController.find_by_id(1)
 print(u)
 
-#CustomerController.save("aida", "shams", "asHe77@gmail.com", "09114567893", "aidaaa", "aida1234")
-#CustomerView()
+CustomerController.save("aida", "shams", "asHe77@gmail.com", "09114567893", "aidaaa", "aida1234")
+CustomerView()
 
 PaymentView()
