@@ -1,6 +1,7 @@
 from model.entity import *
 from model.tools.validation import pattern_validator
 
+
 class Admin(Base):
     __tablename__ = "admin_tbl"
 

@@ -1,7 +1,8 @@
-#customer - Aida Shams
-#Customer : id, Name, Family, Email, Phone, Username, Password
+# customer - Aida Shams
+# Customer : id, Name, Family, Email, Phone, Username, Password
 from model.entity import *
 from model.tools.validation import pattern_validator
+
 
 class Customer(Base):
     __tablename__ = "customer_tbl"
@@ -31,7 +32,6 @@ class Customer(Base):
     def id(self, id):
         self._id = id
 
-
     @property
     def name(self):
         return self._name
@@ -41,11 +41,9 @@ class Customer(Base):
     def name(self, name):
         self._name = name
 
-
     @property
     def family(self):
         return self._family
-
 
     @family.setter
     @pattern_validator(r"^[a-zA-Z\s]{2,20}$", "Invalid Family!")
@@ -59,8 +57,7 @@ class Customer(Base):
     @email.setter
     @pattern_validator(r"^[a-zA-Z0-9]\w+@(gmail|yahoo).com$", "Invalid Email!")
     def email(self, email):
-       self._email = email
-
+        self._email = email
 
     @property
     def phone(self):
@@ -71,7 +68,6 @@ class Customer(Base):
     def phone(self, phone):
         self._phone = phone
 
-
     @property
     def username(self):
         return self._username
@@ -80,7 +76,6 @@ class Customer(Base):
     @pattern_validator(r"^[a-zA-Z0-9]{5,}$", "Invalid Username!")
     def username(self, username):
         self._username = username
-
 
     @property
     def password(self):

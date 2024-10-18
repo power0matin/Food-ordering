@@ -1,12 +1,15 @@
 from model.entity import *
+from model.tools.validation import pattern_validator
 
-class Table(Base):
+
+class Table():
     __tablename__ = "table_tbl"
-    _id = Column(Integer, primary_key=True, autoincrement=True)
+
+    _id = Column("id",Integer, primary_key=True, autoincrement=True)
     _title = Column("title", String(30), nullable=False)
     _location = Column("location", String(30), nullable=False)
     _number = Column("number", Integer, nullable=False)
-    _is_empty = Column("empty", Boolean)
+    _is_empty = Column("empty", Boolean, default=True)
 
     def __init__(self, id, title, location, number, is_empty):
         self.id = id
@@ -28,24 +31,27 @@ class Table(Base):
         return self._title
 
     @title.setter
+    @pattern_validator(r"^[a-zA-Z0-9\s]$","Invalid name")
     def title(self, title):
-        self._title = TableValidation.title_validator(title, "invalid Amount")
+        self._title = title
 
     @property
     def location(self):
         return self._location
 
     @location.setter
+    @pattern_validator(r"^[a-zA-Z\s]$","Invalid name")
     def location(self, location):
-        self._location = TableValidation.location_validator(location, "invalid Amount")
+        self._location = location
 
     @property
     def number(self):
         return self._number
 
     @number.setter
+    @pattern_validator(r"^[0-9]$","Invalid name")
     def number(self, number):
-        self._number = TableValidation.number_validator(number, "invalid Amount")
+        self._number = number
 
     @property
     def is_empty(self):

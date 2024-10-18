@@ -2,6 +2,7 @@ from model.entity.drink import Drink
 from model.service.drink_service import DrinkService
 from model.tools.decorators import exception_handling
 
+
 class DrinkController:
 
     @classmethod

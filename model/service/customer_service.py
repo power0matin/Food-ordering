@@ -1,5 +1,5 @@
-#customer service - Aida Shams
-#using class method
+# customer service - Aida Shams
+# using class method
 from model.entity import Customer
 from model.repository.crud_repository import CrudRepository
 

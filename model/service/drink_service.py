@@ -1,6 +1,7 @@
 from model.entity import Drink
 from model.repository.crud_repository import CrudRepository
 
+
 class DrinkService:
     repo = CrudRepository(Drink)
 

@@ -12,7 +12,6 @@ def pattern_validator(pattern, message):
     return inner
 
 
-
 class Validation:
     @staticmethod
     def pattern_validator(variable, pattern, message):
