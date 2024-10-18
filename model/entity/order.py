@@ -4,6 +4,7 @@ from model.tools.validation import pattern_validator
 
 class Order(Base):
     __tablename__ = "order_table"
+
     _id = Column("id", Integer, primary_key=True, autoincrement=True)
     _amount = Column("amount", Integer, nullable=False)
     _discount = Column("discount", String(5), default=0)
