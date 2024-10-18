@@ -1,56 +1,36 @@
 from model.entity import *
 
 
-class Order:
+class Order(Base):
+
     __tablename__ = "order_table"
+    _id = Column("ID", Integer, primary_key=True, autoincrement=True)
+    _pure_amount = Column("Pure Amount", Integer, default=None, nullable=True)
+    _discount = Column("Discount", Float, default=0)
+    _amount = Column("Amount", Integer, nullable=False)
+    _date_time = Column("Date", DateTime)
 
-    _id = Column("id", Integer, primary_key=True, autoincrement=True)
-
-    _amount = Column("amount", Integer, nullable=False)
-
-    _discount = Column("discount", Integer, default=0)
-
-    _pure_amount = Column("pure_amount", Integer, default=_amount)
-
-    _date_time = Column("date_time", DateTime)
-
-    _customer_name = Column("customer_name", String(20), ForeignKey("customer_tbl.name"), nullable=False)
-    customer = relationship("customer", back_populates="order_table")
-
-    _food_title = Column("food", String(20), ForeignKey("food_tbl.title"))
-    food = relationship("food", back_populates="order_table")
-
-    _drink = Column("drink", String(20), ForeignKey("drink_tbl.title"))
-    drink = relationship("drink", back_populates="order_table")
-
-    _table = Column("table", String(20), ForeignKey("table_tbl.title"))
-    table = relationship("table", back_populates="order_table")
-
-    def __init__(self, order_id, amount, discount, pure_amount, customer, food, drink, table):
-        self.order_id = order_id
-        self._amount = amount
-        self._discount = discount
-        self._pure_amount = pure_amount
-        self._customer = customer
-        self._food_title = food
-        self._drink = drink
-        self._table = table
+    def __init__(self, id, pure_amount, discount, amount):
+        self.id = id
+        self.pure_amount = pure_amount
+        self.discount = discount
+        self.amount = amount
 
     @property
-    def order_id(self):
+    def id(self):
         return self._id
 
-    @order_id.setter
-    def order_id(self, order_id):
-        self._id = Validation.id_validator(order_id, "Invalid Id")
+    @id.setter
+    def order_id(self, id):
+        self._id = Validation.id_validator(id, "Invalid Id")
 
     @property
-    def amount(self):
-        return self._amount
+    def pure_amount(self):
+        return self._pure_amount
 
-    @amount.setter
-    def amount(self, amount):
-        self._amount = OrderValidation.amount_validator(amount, "Invalid Amount")
+    @pure_amount.setter
+    def pure_amount(self, pure_amount=amount):
+        self.pure_amount = OrderValidation.amount_validator(pure_amount, "Invalid Amount")
 
     @property
     def discount(self):
@@ -61,9 +41,12 @@ class Order:
         self._discount = OrderValidation.discount_validator(discount, "Invalid Discount")
 
     @property
-    def pure_amount(self):
-        return self._pure_amount
+    def amount(self):
+        return self._amount
 
-    @pure_amount.setter
-    def pure_amount(self, pure_amount=amount):
-        self.pure_amount = OrderValidation.amount_validator(pure_amount, "Invalid Amount")
+    @amount.setter
+    def amount(self, amount):
+        self._amount = OrderValidation.amount_validator(amount, "Invalid Amount")
+
+
+order_1 = Order(1, 42, 0.12, 42)
