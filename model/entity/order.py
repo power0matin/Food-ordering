@@ -5,11 +5,20 @@ from model.tools.validation import pattern_validator
 class Order(Base):
     __tablename__ = "order_table"
 
+    # table relations
+    foods = relationship("Food", back_populates="order", cascade='all, delete-orphan')
+    drinks = relationship("Drink", back_populates="order", cascade='all, delete-orphan')
+
+    # table columns
     _id = Column("id", Integer, primary_key=True, autoincrement=True)
     _amount = Column("amount", Integer, nullable=False)
     _discount = Column("discount", String(5), default=0)
     _pure_amount = Column("pure_amount", Integer, nullable=True)
     _date_time = Column("date", DateTime)
+
+    # foreign columns
+    _food = Column("food", String(20), nullable=False)
+    _drink = Column("drink", String(20), nullable=False)
 
     def __init__(self, id, pure_amount, discount, amount):
         self._id = id
