@@ -2,6 +2,7 @@ from model.service.table_service import TableService
 from model.entity.table import Table
 from model.tools.decorators import exception_handling
 
+
 class TableController:
 
     @classmethod

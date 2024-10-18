@@ -1,5 +1,6 @@
 from model.entity import *
 
+
 class Food(Base):
     __tablename__ = "food_tbl"
 

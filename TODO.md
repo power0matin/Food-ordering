@@ -4,7 +4,7 @@
 - [x] Organize project folder structure (متین شاه‌آبادی)
 - [x] Write `README.md` and `TODO.md` with project instructions and description (متین شاه‌آبادی)
 
-## Model Implementation (models/)
+## Model Implementation (model/entity)
 - [x] Create `admin.py` (متین شاه‌آبادی)
 - [x] Create `customer.py` (آیدا شمس)
 - [x] Create `food.py` (بردیا زاغری)
@@ -29,8 +29,8 @@
 - [x] Implement `CustomerController` in `customer_controller.py` (آیدا شمس)
 - [x] Implement `FoodController` in `food_controller.py` (بردیا زاغری)
 - [x] Implement `DrinkController` in `drink_controller.py` (مینا رضایی)
-- [ ] Implement `OrderController` in `order_controller.py` (امیر شایان امامی‌پور)
-- [ ] Implement `PaymentController` in `payment_controller.py` (زهرا خسروی)
+- [x] Implement `OrderController` in `order_controller.py` (امیر شایان امامی‌پور)
+- [x] Implement `PaymentController` in `payment_controller.py` (زهرا خسروی)
 - [x] Implement `TableController` in `table_controller.py` (مهربد مهربانی)
 
 ## Service Layer (services/)
@@ -40,20 +40,20 @@
 - [x] Implement `FoodService` (بردیا زاغری)
 - [x] Implement `DrinkService` (مینا رضایی)
 - [x] Implement `OrderService` (امیر شایان امامی‌پور)
-- [ ] Implement `PaymentService` (زهرا خسروی)
+- [x] Implement `PaymentService` (زهرا خسروی)
 - [x] Implement `TableService` (مهربد مهربانی)
 
 ## Final Testing
 - [ ] Test the full application flow (Customer -> Order -> Payment) (همه)
-- [ ] Debug any issues (همه)
-- [ ] Improve user interface and experience (همه)
+- [x] Debug any issues (همه)
+- [x] Improve user interface and experience (همه)
 
 ## Documentation
 - [ ] Add comments to all functions and classes (همه)
 
-
+## Final Update
 - [x] Create app.py
 - [x] Add Create Database to app
 - [x] Edit CrudRepository
 - [x] Add decorators, logger to model.tools
-- [ ] Update Controllers
+- [x] Update Controllers

@@ -1,5 +1,7 @@
 from model.entity import *
 from model.tools.validation import pattern_validator
+
+
 class Table():
     __tablename__ = "table_tbl"
 

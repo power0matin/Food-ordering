@@ -6,7 +6,7 @@ from model.entity import Base
 from view.customer_view import CustomerView
 from view.payment_view import PaymentView
 
-connection_string = "mysql+pymysql://root:root123@localhost:3306/mft"
+connection_string = "mysql+pymysql://root:root123@localhost:3306"
 if not database_exists(connection_string):
     create_database(connection_string)
 
