@@ -1,52 +1,57 @@
 from model.entity import *
+from model.tools.validation import pattern_validator
 
 
 class Order(Base):
     __tablename__ = "order_table"
-    _id = Column("Id", Integer, primary_key=True, autoincrement=True)
-    _amount = Column("Amount", Integer, nullable=False)
-    _discount = Column("Discount", Float, default=0)
-    _pure_amount = Column("Pure Amount", Integer, default=None, nullable=True)
-    _date_time = Column("Date", DateTime)
+    _id = Column("id", Integer, primary_key=True, autoincrement=True)
+    _amount = Column("amount", Integer, nullable=False)
+    _discount = Column("discount", String(5), default=0)
+    _pure_amount = Column("pure_amount", Integer, nullable=True)
+    _date_time = Column("date", DateTime)
 
-    def __init__(self, order_id, pure_amount, discount, amount):
-        self._id = order_id
+    def __init__(self, id, pure_amount, discount, amount):
+        self._id = id
         self._pure_amount = pure_amount
         self._discount = discount
         self._amount = amount
+        self.dt = datetime.now()
 
+    # id getter and setter
     @property
-    def order_id(self):
+    def id(self):
         return self._id
 
-    @order_id.setter
-    def order_id(self, order_id):
-        self._id = Validation.id_validator(order_id, "Invalid Id")
+    @id.setter
+    def id(self, id):
+        self._id = id
 
-    @property
-    def amount(self):
-        return self._amount
-
-    @amount.setter
-    def amount(self, amount):
-        self._amount = OrderValidation.amount_validator(amount, "Invalid Amount")
-
-    @property
-    def discount(self):
-        return self._discount
-
-    @discount.setter
-    def discount(self, discount=0):
-        self._discount = OrderValidation.discount_validator(discount, "Invalid Discount")
-
+    # pure amount getter and setter
     @property
     def pure_amount(self):
         return self._pure_amount
 
     @pure_amount.setter
+    @pattern_validator(r"^\$?(\d{1,3}(,\d{3})*|\d+)(\.\d{2})?$", "Invalid Amount")
     def pure_amount(self, pure_amount):
-        self._pure_amount = OrderValidation.amount_validator(pure_amount, "Invalid Amount")
+        self._pure_amount = pure_amount
 
+    # discount setter and getter
+    @property
+    def discount(self):
+        return self._discount
 
-# Be sure to instantiate correctly
-order_1 = Order(1, 42, 0.12, 42)
+    @discount.setter
+    @pattern_validator(r"^\d{1,3}%$", "Invalid Discount")
+    def discount(self, discount=0):
+        self._discount = discount
+
+    # amount getter and setter
+    @property
+    def amount(self):
+        return self._amount
+
+    @amount.setter
+    @pattern_validator(r"^\$?(\d{1,3}(,\d{3})*|\d+)(\.\d{2})?$", "Invalid Amount")
+    def amount(self, amount):
+        self._amount = amount
