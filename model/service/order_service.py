@@ -16,13 +16,13 @@ class OrderService:
         return order
 
     @classmethod
-    def remove(cls, order_id):
-        cls.repo.remove(order_id)
-        return order_id
+    def remove(cls, id):
+        cls.repo.remove(id)
+        return id
 
     @classmethod
-    def find_by_id(cls, customer_id):
-        return cls.repo.find_by_id(customer_id)
+    def find_by_id(cls, id):
+        return cls.repo.find_by_id(id)
 
     @classmethod
     def find_all(cls):

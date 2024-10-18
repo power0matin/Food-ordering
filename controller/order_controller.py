@@ -7,28 +7,28 @@ class OrderController:
 
     @classmethod
     @exception_handling
-    def save(cls, order_id, amount, discount, pure_amount):
-        order = Order(order_id, amount, discount, pure_amount)
+    def save(cls, amount, discount, pure_amount):
+        order = Order(None, amount, discount, pure_amount)
         OrderService.save(order)
         return True, "Order saved"
 
     @classmethod
     @exception_handling
-    def edit(cls, order_id, amount, discount, pure_amount):
-        order = Order(order_id, amount, discount, pure_amount)
+    def edit(cls, id, amount, discount, pure_amount):
+        order = Order(id, amount, discount, pure_amount)
         OrderService.edit(order)
         return True, "Order saved"
 
     @classmethod
     @exception_handling
-    def remove(cls, order_id):
-        OrderService.remove(order_id)
+    def remove(cls, id):
+        OrderService.remove(id)
         return True, "Order removed"
 
     @classmethod
     @exception_handling
-    def find_by_id(cls, order_id):
-        OrderService.find_by_id(order_id)
+    def find_by_id(cls, id):
+        OrderService.find_by_id(id)
         return True, "Order found"
 
     @classmethod
