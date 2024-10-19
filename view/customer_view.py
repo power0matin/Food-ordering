@@ -6,7 +6,8 @@ from view.component import LabelWithEntry, Table
 
 
 class CustomerView:
-    # reset forms
+
+    # reset forms:
     def reset_form(self):
         self.id.set(0)
         self.name.set("")
