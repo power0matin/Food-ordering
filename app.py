@@ -21,10 +21,10 @@ AdminController.save("matin", "shahabadi", "powermatin", "abcd1234", "1")
 u = AdminController.find_by_id(1)
 print(u)
 
-#costumer app test
+# costumer app test
 CustomerController.save("aida", "shams", "asHe77@gmail.com", "09114567893", "aidaaa", "aida1234")
 CustomerView()
 
-#payment app test
+# payment app test
 PaymentController.save(3, "online", "blah blah", "pizza with grilled onions and meat toppings")
 PaymentView()
