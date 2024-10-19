@@ -8,7 +8,7 @@ from model.tools.decorators import exception_handling
 
 class CustomerController:
 
-    # save
+    # save:
     @classmethod
     @exception_handling
     def save(cls, name, family, email, phone, username, password):
@@ -16,7 +16,7 @@ class CustomerController:
         CustomerService.save(customer)
         return True, "Customer Saved!"
 
-    # edit
+    # edit:
     @classmethod
     @exception_handling
     def edit(cls, id, name, family, email, phone, username, password):
@@ -24,32 +24,32 @@ class CustomerController:
         CustomerService.edit(customer)
         return True, "Customer Edited!"
 
-    # remove
+    # remove:
     @classmethod
     @exception_handling
     def remove(cls, id):
         CustomerService.remove(id)
         return True, "Customer Removed!"
 
-    # find all
+    # find all:
     @classmethod
     @exception_handling
     def find_all(cls):
         return True, CustomerService.find_all()
 
-    # find by id
+    # find by id:
     @classmethod
     @exception_handling
     def find_by_id(cls, id):
         return True, CustomerService.find_by_id(id)
 
-    # find by username
+    # find by username:
     @classmethod
     @exception_handling
     def find_by_username(cls, username):
         return True, CustomerService.find_by_username(username)
 
-    # find by username AND password
+    # find by username AND password:
     @classmethod
     @exception_handling
     def find_by_username_and_password(cls, username, password):
