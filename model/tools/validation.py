@@ -105,5 +105,9 @@ class Validation:
             raise ValueError(error_message)
         return size
 
-
+    @staticmethod
+    def description_validator(description, error_message):
+        if not description or len(description) > 100:
+            raise ValueError(error_message)
+        return description
 
