@@ -18,7 +18,7 @@ for customer in all_customers[1]:
 #find by id
 customer = CustomerController.find_by_id(1)
 if customer:
-    print(f"Found Customer: Name: {customer.name}, Username: {customer.username}")
+    print(f"Found Customer: Name: {Customer.name}, Username: {Customer.username}")
 
 #find by username
 CustomerController.find_by_username("ali")
