@@ -1,5 +1,4 @@
-from sqlalchemy import Column, Integer, String, Float, Boolean
-from model.entity.base import Base
+from model.entity import *
 from model.tools.validation import Validation
 
 class Food(Base):
