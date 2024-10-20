@@ -2,7 +2,7 @@ from model.entity import *
 from model.tools.validation import pattern_validator
 
 
-class Table():
+class Table(Base):
     __tablename__ = "table_tbl"
 
     _id = Column("id",Integer, primary_key=True, autoincrement=True)
