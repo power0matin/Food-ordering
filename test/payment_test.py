@@ -33,4 +33,6 @@ if payment:
     print(f"Found Payment: ID: {Payment.id}, Amount: {Payment.amount}, Payment Type: {Payment.payment_type}, Order: {Payment.order}")
 
 #find by order
-#payment = PaymentController.find_by_id(1)
+payment = PaymentController.find_by_order("stuff")
+if payment:
+    print(f"Found Payment: ID: {Payment.id}, Amount: {Payment.amount}, Payment Type: {Payment.payment_type}, Order: {Payment.order}")
