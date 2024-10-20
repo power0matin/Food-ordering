@@ -3,6 +3,7 @@ from sqlalchemy_utils import create_database, database_exists
 from controller.admin_controller import AdminController
 from controller.customer_controller import CustomerController
 from controller.payment_controller import PaymentController
+from controller.table_controller import TableController
 from model.entity import Base
 from view.customer_view import CustomerView
 from view.payment_view import PaymentView
@@ -29,4 +30,6 @@ CustomerController.save("aida", "shams", "asHe77@gmail.com", "09114567893", "aid
 # todo : has error
 # error fixed
 PaymentController.save(3, "online", "blah blah", 1)
-PaymentView()
+#PaymentView()
+
+TableController.save("table1", "right", 12, True)

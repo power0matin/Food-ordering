@@ -118,4 +118,3 @@ class TableView:
         self.reset_form()
 
         win.mainloop()
-
