@@ -7,7 +7,7 @@ class TableController:
 
     @classmethod
     @exception_handling
-    def save(cls, title, location, number):
+    def save(cls, title, location, number, is_empty):
         table = Table(None, title, location, number, is_empty)
         TableService.save(table)
         return True, "Table saved successfully"
