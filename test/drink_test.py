@@ -1,4 +1,5 @@
 from controller.drink_controller import DrinkController
+
 # todo : what is size? str ?
 # todo : what is size? str ?
 # todo : error
@@ -14,18 +15,18 @@ drink_id = 1
 DrinkController.remove(drink_id)
 
 all_drinks = DrinkController.find_all()
-for drink in all_driks[1]:
-print(f"ID: {drink}.id}, Title: {drink}.title}, Price: {drink}.price}, Size: {drink}.size}")
+for drink in all_drinks[1]:
+    print(f"ID: {drink}.id, Title: {drink}.title, Price: {drink}.price, Size: {drink}.size")
 
 drink_id = 1
-food = DrinkController.find_by_id(drink_id)[1]
+drink = DrinkController.find_by_id(drink_id)[1]
 if drink:
- print(f"Found Drink: Title: {drink.title}, Price: {drink.price}, Size: {drink.size}")
+    print(f"Found Drink: Title: {drink.title}, Price: {drink.price}, Size: {drink.size}")
 
 title = "Drink"
 status, drink_by_title = DrinkController.find_by_title(title)
 if status and drink_by_title:
- for drink in drink_by_title:
-print(f"ID: {drink.id}, Title: {drink.title}, Price: {drink.price}, Size: {drink.size}")
+    for drink in drink_by_title:
+        print(f"ID: {drink.id}, Title: {drink.title}, Price: {drink.price}, Size: {drink.size}")
 
 
