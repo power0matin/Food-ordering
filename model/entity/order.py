@@ -21,9 +21,6 @@ class Order(Base):
     drink = relationship("Drink")
     _drink_id = Column("drink_id", Integer, ForeignKey("drink_tbl.id"))
 
-
-
-
     def __init__(self, id, pure_amount, discount, amount):
         self._id = id
         self._pure_amount = pure_amount
