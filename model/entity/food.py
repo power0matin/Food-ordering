@@ -1,5 +1,6 @@
-from model.entity import *
-
+from sqlalchemy import Column, Integer, String, Float, Boolean
+from model.entity.base import Base
+from model.tools.validation import Validation
 
 class Food(Base):
     __tablename__ = "food_tbl"
@@ -11,7 +12,6 @@ class Food(Base):
     _duration = Column("duration", Integer, nullable=False)
     _size = Column("size", String(10), nullable=False)
     _available = Column("available", Boolean, default=True)
-
 
     def __init__(self, food_id, title, description, price, duration, size, available=True):
         self.food_id = food_id
@@ -28,7 +28,7 @@ class Food(Base):
 
     @food_id.setter
     def food_id(self, food_id):
-        self._id = food_id
+        self._id = Validation.id_validator(food_id, "Invalid ID!")
 
     @property
     def title(self):
@@ -36,7 +36,7 @@ class Food(Base):
 
     @title.setter
     def title(self, title):
-        self._title = FoodValidation.title_validator(title, "Invalid Title!")
+        self._title = Validation.title_validator(title, "Invalid Title!")
 
     @property
     def description(self):
@@ -44,7 +44,7 @@ class Food(Base):
 
     @description.setter
     def description(self, description):
-        self._description = FoodValidation.description_validator(description, "Invalid Description!")
+        self._description = Validation.description_validator(description, "Invalid Description!")
 
     @property
     def price(self):
@@ -52,7 +52,7 @@ class Food(Base):
 
     @price.setter
     def price(self, price):
-        self._price = FoodValidation.price_validator(price, "Invalid Price!")
+        self._price = Validation.price_validator(price, "Invalid Price!")
 
     @property
     def duration(self):
@@ -60,7 +60,7 @@ class Food(Base):
 
     @duration.setter
     def duration(self, duration):
-        self._duration = FoodValidation.duration_validator(duration, "Invalid Duration!")
+        self._duration = Validation.duration_validator(duration, "Invalid Duration!")
 
     @property
     def size(self):
@@ -68,7 +68,7 @@ class Food(Base):
 
     @size.setter
     def size(self, size):
-        self._size = FoodValidation.size_validator(size, "Invalid Size!")
+        self._size = Validation.size_validator(size, "Invalid Size!")
 
     @property
     def available(self):

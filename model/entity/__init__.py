@@ -4,7 +4,6 @@ from sqlalchemy import Column, Integer, String, Float, Boolean, DateTime, Date, 
 
 # Validation
 from model.tools.validation import *
-from model.tools.validation import *
 from model.tools.order_validation import *
 from model.tools.table_validation import *
 
