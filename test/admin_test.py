@@ -19,11 +19,13 @@ for admin in all_admins[1]:
 admin_id = 1
 
 # Find by ID
-admin = AdminController.find_by_id(admin_id)
-print(f"Found Admin: Name: {admin[1].name}, Username: {admin[1].username}")
+admin = AdminController.find_by_id(admin_id)[1]
+if admin:
+    print(f"Found Admin: Name: {admin.name}, Username: {admin.username}")
 
 # Find by username
 username = "aliaaaa"
-admin_by_username = AdminController.find_by_username(username)
-for admin in admin_by_username[1]:
-    print(f"ID: {admin.id}, Name: {admin.name}, Username: {admin.username}")
+status, admin_by_username = AdminController.find_by_username(username)
+if status and admin_by_username:
+    for admin in admin_by_username:
+        print(f"ID: {admin.id}, Name: {admin.name}, Username: {admin.username}")
