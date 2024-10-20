@@ -3,6 +3,7 @@ from sqlalchemy_utils import create_database, database_exists
 from controller.admin_controller import AdminController
 from controller.payment_controller import PaymentController
 from model.entity import Base
+from view.payment_view import PaymentView
 
 connection_string = "mysql+pymysql://root:root123@localhost:3306/mft"
 if not database_exists(connection_string):
@@ -24,5 +25,5 @@ print(u)
 #
 # payment app test
 # todo : has error
-PaymentController.save(3, "online", "blah blah", "pizza with grilled onions and meat toppings")
-# PaymentView()
+PaymentController.save(3, "online", "blah blah", 1)
+PaymentView()
