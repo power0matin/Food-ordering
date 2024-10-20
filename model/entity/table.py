@@ -49,7 +49,6 @@ class Table(Base):
         return self._number
 
     @number.setter
-    @pattern_validator(r"^[0-9]$","Invalid name")
     def number(self, number):
         self._number = number
 
