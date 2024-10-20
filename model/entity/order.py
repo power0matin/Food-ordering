@@ -1,6 +1,5 @@
-
 from model.entity import *
-from model.tools.validation import pattern_validator
+from model.tools.validation import *
 
 
 class Order(Base):
