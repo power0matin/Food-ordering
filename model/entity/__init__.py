@@ -3,7 +3,10 @@ from sqlalchemy.orm import relationship
 from sqlalchemy import Column, Integer, String, Float, Boolean, DateTime, Date, Time, ForeignKey, and_, or_
 
 # Validation
-from model.tools import *
+from model.tools.validation import *
+from model.tools.food_validation import *
+from model.tools.order_validation import *
+from model.tools.table_validation import *
 
 # date time
 from datetime import datetime, date,time,timedelta

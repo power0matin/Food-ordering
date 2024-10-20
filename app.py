@@ -1,8 +1,6 @@
 from sqlalchemy import create_engine
 from sqlalchemy_utils import create_database, database_exists
-from controller.admin_controller import AdminController
-from controller.customer_controller import CustomerController
-from controller.payment_controller import PaymentController
+from controller  import *
 from model.entity import Base
 from view.customer_view import CustomerView
 from view.payment_view import PaymentView

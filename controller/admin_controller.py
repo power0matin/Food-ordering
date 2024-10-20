@@ -1,4 +1,4 @@
-from model.entity.admin import Admin
+from model.entity import Admin
 from model.service.admin_service import AdminService
 from model.tools.decorators import exception_handling
 
