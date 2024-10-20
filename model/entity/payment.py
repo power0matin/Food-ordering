@@ -9,7 +9,7 @@ class Payment(Base):
     _date_time = Column("date_time", DateTime, default=datetime.now)
     _payment_type = Column("payment_type", String(30), nullable=False)
     _description = Column("description", String(255), nullable=True)
-    _order = Column("order", Integer, nullable=False)
+    _order = Column("order", String(30), nullable=True)
 
     def __init__(self, id, amount, payment_type, description, order):
         self.id = id
@@ -65,6 +65,6 @@ class Payment(Base):
 
     @order.setter
     def order(self, order):
-        if order <= 0:
+        if not order:
             raise ValueError("Invalid Order.")
         self._order = order

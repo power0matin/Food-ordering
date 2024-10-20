@@ -3,12 +3,18 @@ from model.entity import customer
 from model.entity.customer import Customer
 from controller.customer_controller import CustomerController
 
-# customer = Customer(123, "ai0da", "sH9ams", "aidashmas77mail.com", "091aa456789", "aida-123", "aidas-123")
+# customer = Customer(1, "ai0da", "sH9ams", "aidashmas77mail.com", "091aa456789", "aida-123", "aidas-123")
 
 # print(customer)
 
-
+#save
 CustomerController.save("ali", "alipour", "aidashmas77@gmail.com", "09111234567", "aida123", "aidash123")
+
+#edit
+CustomerController.edit(id, "name", "family", "email", "phone", "username", "password")
+
+#remove
+#CustomerController.remove(id)
 
 #find all
 all_customers = CustomerController.find_all()

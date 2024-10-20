@@ -29,7 +29,7 @@ CustomerController.save("aida", "shams", "asHe77@gmail.com", "09114567893", "aid
 # payment app test
 # todo : has error
 # error fixed
-PaymentController.save(3, "online", "blah blah", 1)
-#PaymentView()
+PaymentController.save(3, "online", "blah blah", "drink")
+# PaymentView()
 
 TableController.save("Aable1", "right", 12, True)
