@@ -5,7 +5,7 @@ class Payment(Base):
     __tablename__ = "payment_tbl"
 
     _id = Column("id", Integer, primary_key=True, autoincrement=True)
-    _amount = Column("amount", Float, nullable=False)
+    _amount = Column("amount", Integer, nullable=False)
     _date_time = Column("date_time", DateTime, default=datetime.now)
     _payment_type = Column("payment_type", String(30), nullable=False)
     _description = Column("description", String(255), nullable=True)

@@ -130,8 +130,8 @@ class PaymentView:
 
         # table columns view:
         self.table = Table(win,
-                           ["Id", "Name", "Family", "Amount", "Payment Type", "Description", "Order"],
-                           [30, 70, 70, 60, 100, 150, 150],
+                           ["Id", "Amount", "Date", "Payment Type", "Description", "Order"],
+                           [30, 70, 130, 100, 150, 70],
                            250,
                            20,
                            self.table_click
@@ -139,14 +139,14 @@ class PaymentView:
         self.table.refresh_table(PaymentController.find_all()[1])
 
         # buttons view:
-        Button(win, text="Save", width=10, command=self.save_click).place(x=300, y=260)
-        Button(win, text="Edit", width=10, command=self.edit_click).place(x=410, y=260)
-        Button(win, text="Remove", width=10, command=self.remove_click).place(x=520, y=260)
-        Button(win, text="Find By Id", width=10, command=self.find_by_id_click).place(x=630, y=260)
-        Button(win, text="Find All", width=10, command=self.find_all_click).place(x=740, y=260)
-        Button(win, text="Find By Payment Type", width=25, command=self.find_by_payment_type_click).place(x=330, y=310)
-        Button(win, text="Find By Amount", width=15, command=self.find_by_amount_click).place(x=540, y=310)
-        Button(win, text="Find By Order", width=15, command=self.find_by_order_click).place(x=680, y=310)
+        Button(win, text="Save", width=10, command=self.save_click).place(x=280, y=260)
+        Button(win, text="Edit", width=10, command=self.edit_click).place(x=390, y=260)
+        Button(win, text="Remove", width=10, command=self.remove_click).place(x=500, y=260)
+        Button(win, text="Find By Id", width=10, command=self.find_by_id_click).place(x=610, y=260)
+        Button(win, text="Find All", width=10, command=self.find_all_click).place(x=720, y=260)
+        Button(win, text="Find By Payment Type", width=25, command=self.find_by_payment_type_click).place(x=310, y=310)
+        Button(win, text="Find By Amount", width=15, command=self.find_by_amount_click).place(x=520, y=310)
+        Button(win, text="Find By Order", width=15, command=self.find_by_order_click).place(x=660, y=310)
         self.reset_form()
 
         win.mainloop()
