@@ -31,7 +31,7 @@ class Table(Base):
         return self._title
 
     @title.setter
-    @pattern_validator(r"^[a-zA-Z0-9\s]$","Invalid name")
+    @pattern_validator(r"^[a-zA-Z0-9\s]{1,20}$","Invalid name")
     def title(self, title):
         self._title = title
 
@@ -40,7 +40,7 @@ class Table(Base):
         return self._location
 
     @location.setter
-    @pattern_validator(r"^[a-zA-Z\s]$","Invalid name")
+    @pattern_validator(r"^[a-zA-Z\s]{1,20}$","Invalid name")
     def location(self, location):
         self._location = location
 

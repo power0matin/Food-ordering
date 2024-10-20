@@ -32,4 +32,4 @@ CustomerController.save("aida", "shams", "asHe77@gmail.com", "09114567893", "aid
 PaymentController.save(3, "online", "blah blah", 1)
 #PaymentView()
 
-TableController.save("table1", "right", 12, True)
+TableController.save("Aable1", "right", 12, True)
