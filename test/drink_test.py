@@ -15,12 +15,12 @@ DrinkController.remove(drink_id)
 
 all_drinks = DrinkController.find_all()
 for drink in all_driks[1]:
-print(d"ID: {drink}.id}, Title: {drink}.title}, Price: {drink}.price}, Size: {drink}.size}")
+print(f"ID: {drink}.id}, Title: {drink}.title}, Price: {drink}.price}, Size: {drink}.size}")
 
 drink_id = 1
 food = DrinkController.find_by_id(drink_id)[1]
 if drink:
- print(d"Found Drink: Title: {drink.title}, Price: {drink.price}, Size: {drink.size}")
+ print(f"Found Drink: Title: {drink.title}, Price: {drink.price}, Size: {drink.size}")
 
 title = "Drink"
 status, drink_by_title = DrinkController.find_by_title(title)
