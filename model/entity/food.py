@@ -12,6 +12,7 @@ class Food(Base):
     _size = Column("size", String(10), nullable=False)
     _available = Column("available", Boolean, default=True)
 
+
     def __init__(self, food_id, title, description, price, duration, size, available=True):
         self.food_id = food_id
         self.title = title
