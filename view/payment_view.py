@@ -9,8 +9,6 @@ class PaymentView:
     # reset forms:
     def reset_form(self):
         self.id.set(0)
-        self.name.set("")
-        self.family.set("")
         self.amount.set(0)
         self.payment_type.set("")
         self.description.set("")
@@ -23,9 +21,7 @@ class PaymentView:
     # save function:
     def save_click(self):
         status, message = PaymentController.save(
-            self.name.get(),
-            self.family.get(),
-            self.amount.set(0),
+            self.amount.set(1),
             self.payment_type.set(""),
             self.description.set(""),
             self.order.set("")
@@ -40,8 +36,6 @@ class PaymentView:
     def edit_click(self):
         status, message = PaymentController.edit(
             self.id.get(),
-            self.name.get(),
-            self.family.get(),
             self.amount.set(0),
             self.payment_type.set(""),
             self.description.set(""),
@@ -117,16 +111,14 @@ class PaymentView:
         win = Tk()
         win.title("Payment View")
         win.resizable(False, False)
-        win.geometry("900x380")
+        win.geometry("850x360")
 
         # entry view:
-        self.id = LabelWithEntry(win, "Id", 30, 20, data_type="int", state="readonly")
-        self.name = LabelWithEntry(win, "Name", 30, 60)
-        self.family = LabelWithEntry(win, "Family", 30, 100)
-        self.amount = LabelWithEntry(win, "Amount", 30, 140)
-        self.payment_type = LabelWithEntry(win, "Payment Type", 30, 180)
-        self.description = LabelWithEntry(win, "Description", 30, 220)
-        self.order = LabelWithEntry(win, "Order", 30, 260)
+        self.id = LabelWithEntry(win, "Id", 30, 40, data_type="int", state="readonly")
+        self.amount = LabelWithEntry(win, "Amount", 30, 80)
+        self.payment_type = LabelWithEntry(win, "Payment Type", 30, 120)
+        self.description = LabelWithEntry(win, "Description", 30, 160)
+        self.order = LabelWithEntry(win, "Order", 30, 200)
 
         # table columns view:
         self.table = Table(win,
