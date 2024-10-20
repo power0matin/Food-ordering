@@ -34,9 +34,9 @@ class TableController:
     @classmethod
     @exception_handling
     def find_empty_table(cls):
-            return True, TableService.find_empty_table(True)
+            return TableService.find_empty_table()
 
     @classmethod
     @exception_handling
     def find_by_number(cls, number):
-            return True,TableService.find_by_number(number)
+            return TableService.find_by_number(number)

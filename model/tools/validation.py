@@ -110,17 +110,11 @@ class Validation:
 
     @staticmethod
     def is_empty_validator(is_empty, message):
-        if type(is_empty) == bool and is_empty == True:
+        if type(is_empty) == bool:
             return is_empty
         else:
             raise ValueError(message)
 
-    @staticmethod
-    def location_validator(location, message):
-        if type(location) == str and re.match(r"^[A-Za-z\s0-9]$", location):
-            return location
-        else:
-            raise ValueError(message)
 
     @staticmethod
     def number_validator(number, message):

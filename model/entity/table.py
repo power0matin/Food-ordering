@@ -1,6 +1,5 @@
 from model.entity import *
-from model.tools.validation import pattern_validator
-
+from model.tools.validation import *
 
 class Table(Base):
     __tablename__ = "table_tbl"
@@ -46,11 +45,11 @@ class Table(Base):
 
     @property
     def number(self):
-        return self._number
+       return self._number
 
     @number.setter
     def number(self, number):
-        self._number = number
+        self._number = Validation.number_validator(number, "Invalid number")
 
     @property
     def is_empty(self):
@@ -58,7 +57,7 @@ class Table(Base):
 
     @is_empty.setter
     def is_empty(self, is_empty):
-        self._is_empty = is_empty
+        self._is_empty = Validation.is_empty_validator(is_empty, "Invalid is_empty")
 
 
 
