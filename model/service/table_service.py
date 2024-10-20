@@ -20,7 +20,6 @@ class TableService:
         cls.repo.remove(id)
         return id
 
-
     @classmethod
     def find_all(cls):
         return cls.repo.find_all()
