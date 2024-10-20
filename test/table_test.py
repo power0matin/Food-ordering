@@ -8,6 +8,5 @@ TableController.find_all()
 # TableController.find_empty_table()
 #
 # TableController.find_by_number(2)
-print(entity_list)
 
 
