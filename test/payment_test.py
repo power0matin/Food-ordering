@@ -2,17 +2,15 @@ from controller.payment_controller import PaymentController
 from model.entity import Payment
 
 # Save
-# todo : error
-# PaymentController.save()
+PaymentController.save(3, "online", "blah blah", 1)
 
 payment_id = 1
 
 # Edit
-# todo : error
-PaymentController.edit(payment_id, )
+PaymentController.edit(2,4, "in person", "description", 2)
 
 # Remove
-PaymentController.remove(payment_id)
+#PaymentController.remove(payment_id)
 
 # Find all
 all_payments = PaymentController.find_all()
