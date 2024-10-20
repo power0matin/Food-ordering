@@ -1,5 +1,5 @@
 from model.entity import *
-
+from model.tools.validation import Validation
 
 class Drink(Base):
     __tablename__ = "drink_tbl"

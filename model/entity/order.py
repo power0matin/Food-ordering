@@ -1,4 +1,3 @@
-from tensorflow.python.lib.io.file_io import delete_file
 
 from model.entity import *
 from model.tools.validation import pattern_validator
