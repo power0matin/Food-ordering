@@ -1,4 +1,4 @@
-from controller import AdminController
+from controller.admin_controller import AdminController
 
 # Save
 AdminController.save("ali", "alipour","aliaaaa","aliaaa123", 1111)
