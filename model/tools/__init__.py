@@ -3,4 +3,3 @@ from model.tools.logging import Logger
 
 from model.tools.validation import Validation
 from model.tools.order_validation import OrderValidation
-from model.tools.table_validation import TableValidation
