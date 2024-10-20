@@ -20,7 +20,7 @@ print(f"ID: {drink}.id}, Title: {drink}.title}, Price: {drink}.price}, Size: {dr
 drink_id = 1
 food = DrinkController.find_by_id(drink_id)[1]
 if drink:
- print(f"Found Drink: Title: {drink.title}, Price: {drink.price}, Size: {drink.size}")
+ print(d"Found Drink: Title: {drink.title}, Price: {drink.price}, Size: {drink.size}")
 
 title = "Drink"
 status, drink_by_title = DrinkController.find_by_title(title)
