@@ -93,6 +93,3 @@ class Customer(Base):
     @pattern_validator(r"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$", "Invalid Password!")
     def password(self, password):
         self._password = password
-
-#note to self: sqlalchemy.exc.InvalidRequestError: Table 'customer_tbl' is already defined for this MetaData instance.-
-# -Specify 'extend_existing=True' to redefine options and columns on an existing Table object.

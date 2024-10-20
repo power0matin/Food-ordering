@@ -20,5 +20,5 @@ PaymentController.remove(payment_id)
 
 # todo : error
 # Find by ID
-# payment = PaymentController.find_by_id(payment_id)
-# print(f"Found Payment: Amount: {payment[1].amount}, Payment Type: {payment[1].payment_type}")
+payment = PaymentController.find_by_id(payment_id)
+print(f"Found Payment: Amount: {payment[1].amount}, Payment Type: {payment[1].payment_type}")
