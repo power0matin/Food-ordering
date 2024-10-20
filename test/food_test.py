@@ -2,13 +2,13 @@ from controller.food_controller import FoodController
 
 # todo : error
 # save a new food
-FoodController.save("Pizza", "Delicious cheese pizza", 12.99, 30, "Large")
+FoodController.save("Pizza", "pepperoni pizza", 12.99, 30, "Large")
 
 food_id = 1
 
 # todo : error
 # edit the food item
-FoodController.edit(food_id, "Burger", "Juicy beef burger", 9.99, 20, "Medium", True)
+FoodController.edit(food_id, "Burger", "beef burger", 9.99, 20, "Medium", True)
 food_id = 1
 
 # remove the food item
