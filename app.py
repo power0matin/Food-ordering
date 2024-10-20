@@ -25,5 +25,6 @@ print(u)
 #
 # payment app test
 # todo : has error
+# error fixed
 PaymentController.save(3, "online", "blah blah", 1)
 PaymentView()
