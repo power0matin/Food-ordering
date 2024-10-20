@@ -8,7 +8,7 @@ from model.entity import Base
 from view.customer_view import CustomerView
 from view.payment_view import PaymentView
 
-connection_string = "mysql+pymysql://root:root123@localhost:3306/mft"
+connection_string = "mysql+pymysql://root:Matin2170@localhost:3306/mft"
 if not database_exists(connection_string):
     create_database(connection_string)
 
@@ -30,6 +30,6 @@ CustomerController.save("aida", "shams", "asHe77@gmail.com", "09114567893", "aid
 # todo : has error
 # error fixed
 PaymentController.save(3, "online", "blah blah", "drink")
-PaymentView()
+# PaymentView()
 
 TableController.save("table1", "right", 12, True)
