@@ -1,24 +1,28 @@
+from tensorflow.python.lib.io.file_io import delete_file
+
 from model.entity import *
 from model.tools.validation import pattern_validator
 
 
 class Order(Base):
-    __tablename__ = "order_table"
-
-    # table relations
-    foods = relationship("Food", back_populates="order", cascade='all, delete-orphan')
-    drinks = relationship("Drink", back_populates="order", cascade='all, delete-orphan')
+    __tablename__ = "order_tbl"
 
     # table columns
     _id = Column("id", Integer, primary_key=True, autoincrement=True)
     _amount = Column("amount", Integer, nullable=False)
     _discount = Column("discount", String(5), default=0)
     _pure_amount = Column("pure_amount", Integer, nullable=True)
-    _date_time = Column("date", DateTime)
+    _date_time = Column("order_date", DateTime)
 
-    # foreign columns
-    _food_title = Column("food", String(20), ForeignKey('food._title'), nullable=False)
-    _drink_title = Column("drink", String(20), ForeignKey('drink._title'), nullable=False)
+    # table relations
+    _food_id = Column("food_id", Integer, ForeignKey("food_tbl.id"))
+    food = relationship("Food")
+
+    drink = relationship("Drink")
+    _drink_id = Column("drink_id", Integer, ForeignKey("drink_tbl.id"))
+
+
+
 
     def __init__(self, id, pure_amount, discount, amount):
         self._id = id
