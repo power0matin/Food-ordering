@@ -20,5 +20,6 @@ PaymentController.remove(payment_id)
 
 # todo : error
 # Find by ID
-payment = PaymentController.find_by_id(payment_id)
-print(f"Found Payment: Amount: {payment[1].amount}, Payment Type: {payment[1].payment_type}")
+all_payments = PaymentController.find_by_id(payment_id)
+for Payment in all_payments[1]:
+    print(f"Found Payment: Amount: {Payment[1].amount}, Payment Type: {Payment[1].payment_type}")

@@ -29,4 +29,4 @@ CustomerController.save("aida", "shams", "asHe77@gmail.com", "09114567893", "aid
 # todo : has error
 # error fixed
 PaymentController.save(3, "online", "blah blah", 1)
-#PaymentView()
+PaymentView()
