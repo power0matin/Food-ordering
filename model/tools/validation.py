@@ -5,10 +5,12 @@ def pattern_validator(pattern, message):
     def inner(function_name):
         def inner2(self, value):
             if type(value) == str and re.match(pattern, value):
-                function_name(self,value)
+                function_name(self, value)
             else:
                 raise ValueError(message)
+
         return inner2
+
     return inner
 
 
@@ -19,7 +21,6 @@ class Validation:
             return variable
         else:
             raise ValueError(message)
-
 
     @staticmethod
     def id_validator(id, message):
@@ -77,13 +78,11 @@ class Validation:
         else:
             return ValueError(message)
 
-
     @staticmethod
     def title_validator(title, error_message):
         if not title or len(title) > 50:
             raise ValueError(error_message)
         return title
-
 
     @staticmethod
     def price_validator(price, error_message):
@@ -91,13 +90,11 @@ class Validation:
             raise ValueError(error_message)
         return price
 
-
     @staticmethod
     def duration_validator(duration, error_message):
         if duration <= 0:
             raise ValueError(error_message)
         return duration
-
 
     @staticmethod
     def size_validator(size, error_message):
@@ -112,21 +109,21 @@ class Validation:
         return description
 
     @staticmethod
-    def is_empty_validator(is_empty,message):
+    def is_empty_validator(is_empty, message):
         if type(is_empty) == bool and is_empty == True:
             return is_empty
         else:
             raise ValueError(message)
 
     @staticmethod
-    def location_validator(location,message):
+    def location_validator(location, message):
         if type(location) == str and re.match(r"^[A-Za-z\s0-9]$", location):
             return location
         else:
             raise ValueError(message)
 
     @staticmethod
-    def number_validator(number,message):
+    def number_validator(number, message):
         if type(number) == int and number >= 0:
             return number
         else:
@@ -151,4 +148,3 @@ class Validation:
             raise ValueError(message)
         else:
             return pure_amount
-

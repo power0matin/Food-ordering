@@ -1,35 +1,33 @@
 from controller.food_controller import FoodController
 
 # todo : error
-# FoodController.add_food("Pizza", 15.5, 30, "Delicious pizza", True)
+# save a new food
+FoodController.save("Pizza", "pepperoni pizza", 12.99, 30, "Large")
 
 food_id = 1
 
 # todo : error
-# FoodController.update_food(food_id, "Cheese Pizza", 17.0, 35, "Updated description", True)
-
+# edit the food item
+FoodController.edit(food_id, "Burger", "beef burger", 9.99, 20, "Medium", True)
 food_id = 1
 
-FoodController.delete_food(food_id)
+# remove the food item
+FoodController.remove(food_id)
 
 # todo : error
-# all_foods = FoodController.get_all_foods()
+all_foods = FoodController.find_all()
+for food in all_foods[1]:
+    print(f"ID: {food.id}, Title: {food.title}, Price: {food.price}, Size: {food.size}")
 
 # todo : error
-# for food in all_foods[0]['foods']:
-#     print(f"ID: {food.id}, Title: {food.title}, Price: {food.price}")
-
 food_id = 1
+food = FoodController.find_by_id(food_id)[1]
+if food:
+    print(f"Found Food: Title: {food.title}, Price: {food.price}, Size: {food.size}")
 
 # todo : error
-# find by id
-# food = FoodController.get_food_by_id(food_id)
-# print(f"Found Food: Title: {food[0]['food'].title}, Price: {food[0]['food'].price}")
-
-# find by title
 title = "Pizza"
-
-# todo : error
-# foods = FoodController.search_food_by_title(title)
-# for food in foods[0]['foods']:
-#     print(f"ID: {food.id}, Title: {food.title}, Price: {food.price}")
+status, food_by_title = FoodController.find_by_title(title)
+if status and food_by_title:
+    for food in food_by_title:
+        print(f"ID: {food.id}, Title: {food.title}, Price: {food.price}, Size: {food.size}")
