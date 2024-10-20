@@ -5,6 +5,8 @@ from view.component import LabelWithEntry, Table
 
 
 class PaymentView:
+
+    # reset forms:
     def reset_form(self):
         self.id.set(0)
         self.name.set("")
@@ -14,9 +16,11 @@ class PaymentView:
         self.description.set("")
         self.order.set("")
 
+    # table function:
     def table_click(self, selected_item):
         print(selected_item)
 
+    # save function:
     def save_click(self):
         status, message = PaymentController.save(
             self.name.get(),
@@ -32,6 +36,7 @@ class PaymentView:
         else:
             msg.showerror("Error: NOT Saved!", message)
 
+    # edit function:
     def edit_click(self):
         status, message = PaymentController.edit(
             self.id.get(),
@@ -48,6 +53,7 @@ class PaymentView:
         else:
             msg.showerror("Error: NOT Edited!", message)
 
+    # remove function:
     def remove_click(self):
         if msg.askyesno("Remove Payment", "Are you sure?"):
             status, message = PaymentController.remove(self.id.get())
@@ -57,6 +63,7 @@ class PaymentView:
             else:
                 msg.showerror("Error: NOT Removed!", message)
 
+    # find all function:
     def find_all_click(self):
         if msg.askyesno("Find All Payments"):
             status, message = PaymentController.find_all()
@@ -66,6 +73,7 @@ class PaymentView:
             else:
                 msg.showerror("Error: NOT Found!", message)
 
+    # find by id function:
     def find_by_id_click(self):
         if msg.askyesno("Find By Id"):
             status, message = PaymentController.find_by_id(self.id.get())
@@ -75,6 +83,7 @@ class PaymentView:
             else:
                 msg.showerror("Error: NOT Found!", message)
 
+    # find by payment type function:
     def find_by_payment_type_click(self):
         if msg.askyesno("Find By Payment Type"):
             status, message = PaymentController.find_by_payment_type(self.payment_type.get())
@@ -84,6 +93,7 @@ class PaymentView:
             else:
                 msg.showerror("Error: NOT Found!", message)
 
+    # find by amount function:
     def find_by_amount_click(self):
         if msg.askyesno("Find By Amount"):
             status, message = PaymentController.find_by_amount(self.amount.get())
@@ -93,6 +103,7 @@ class PaymentView:
             else:
                 msg.showerror("Error: NOT Found!", message)
 
+    # find by order function:
     def find_by_order_click(self):
         if msg.askyesno("Find By Order"):
             status, message = PaymentController.find_by_order(self.order.get())
@@ -108,6 +119,7 @@ class PaymentView:
         win.resizable(False, False)
         win.geometry("900x380")
 
+        # entry view:
         self.id = LabelWithEntry(win, "Id", 30, 20, data_type="int", state="readonly")
         self.name = LabelWithEntry(win, "Name", 30, 60)
         self.family = LabelWithEntry(win, "Family", 30, 100)
@@ -116,6 +128,7 @@ class PaymentView:
         self.description = LabelWithEntry(win, "Description", 30, 220)
         self.order = LabelWithEntry(win, "Order", 30, 260)
 
+        # table columns view:
         self.table = Table(win,
                            ["Id", "Name", "Family", "Amount", "Payment Type", "Description", "Order"],
                            [30, 70, 70, 60, 100, 150, 150],
@@ -125,6 +138,7 @@ class PaymentView:
                            )
         self.table.refresh_table(PaymentController.find_all()[1])
 
+        # buttons view:
         Button(win, text="Save", width=10, command=self.save_click).place(x=300, y=260)
         Button(win, text="Edit", width=10, command=self.edit_click).place(x=410, y=260)
         Button(win, text="Remove", width=10, command=self.remove_click).place(x=520, y=260)
