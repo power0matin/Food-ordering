@@ -15,7 +15,12 @@ class TableView:
         self.table.refresh_table(TableController.find_all()[1])
 
     def table_click(self, selected_item):
-        print(selected_item)
+        table = Table(*selected_item)
+        self.id.set(table.id)
+        self.title.set(table.title)
+        self.location.set(table.location)
+        self.number.set(table.number)
+        self.is_empty.set(table.is_empty)
 
     def save_click(self):
         try:
@@ -72,7 +77,7 @@ class TableView:
     def find_empty_table_click(self):
         is_empty = self.is_empty.get()
         try:
-            table = TableController.find_empty_table(is_empty)
+            table = TableController.find_empty_tables(is_empty)
             if table:
                 self.table.refresh_table(table)
                 msg.showinfo("Find Empty Table", table)
