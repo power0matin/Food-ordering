@@ -8,9 +8,7 @@ def pattern_validator(pattern, message):
                 function_name(self, value)
             else:
                 raise ValueError(message)
-
         return inner2
-
     return inner
 
 
