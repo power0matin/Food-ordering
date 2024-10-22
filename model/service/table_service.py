@@ -7,18 +7,15 @@ class TableService:
 
     @classmethod
     def save(cls, table):
-        cls.repo.save(table)
-        return table
+        return cls.repo.save(table)
 
     @classmethod
     def edit(cls, table):
-        cls.repo.edit(table)
-        return table
+        return cls.repo.edit(table)
 
     @classmethod
     def remove(cls, id):
-        cls.repo.remove(id)
-        return id
+        return cls.repo.remove(id)
 
     @classmethod
     def find_all(cls):

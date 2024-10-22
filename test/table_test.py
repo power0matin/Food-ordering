@@ -25,5 +25,6 @@ TableController.find_empty_tables()
 
 # TableController.find_by_number(2)
 
+# برای ظاهر مشکل ران وجود داشت که شما سر کلاس بر طرفش کردید اما فکر میکنم به دلیل اپدیت اشتباه من درست کامیت نشد
 
 TableView()
