@@ -2,6 +2,7 @@
 from tkinter import *
 import tkinter.messagebox as msg
 from controller.customer_controller import CustomerController
+from model.entity import admin, Customer
 from view.component import LabelWithEntry, Table
 
 
@@ -16,20 +17,32 @@ class CustomerView:
         self.phone.set("")
         self.username.set("")
         self.password.set("")
+        status, data = CustomerController.find_all()
+        if status:
+            self.table.refresh_table(data)
+        else:
+            msg.showerror("Error", data)
 
     # table function:
     def table_click(self, selected_item):
-        print(selected_item)
+        customer = Customer(*selected_item)
+        self.id.set(customer.id)
+        self.name.set(customer.name)
+        self.family.set(customer.family)
+        self.email.set(customer.email)
+        self.phone.set(customer.phone)
+        self.username.set(customer.username)
+        self.password.set(customer.password)
 
     # save function:
     def save_click(self):
         status, message = CustomerController.save(
             self.name.get(),
             self.family.get(),
-            self.email.set(""),
-            self.phone.set(""),
-            self.username.set(""),
-            self.password.set("")
+            self.email.get(),
+            self.phone.get(),
+            self.username.get(),
+            self.password.get()
         )
         if status:
             msg.showinfo("Saved!", message)
@@ -43,10 +56,10 @@ class CustomerView:
             self.id.get(),
             self.name.get(),
             self.family.get(),
-            self.email.set(""),
-            self.phone.set(""),
-            self.username.set(""),
-            self.password.set("")
+            self.email.get(),
+            self.phone.get(),
+            self.username.get(),
+            self.password.get()
         )
         if status:
             msg.showinfo("Edited!", message)
