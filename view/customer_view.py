@@ -49,9 +49,9 @@ class CustomerView:
                 msg.showinfo("Saved!", message)
                 self.reset_form()
             else:
-                msg.showerror("Error: NOT Saved!", message)
+                msg.showerror("Error: Couldn't Save!", message)
         except Exception as e:
-            msg.showerror("Error: NOT Saved!", str(e))
+            msg.showerror("Error: Couldn't Save!", str(e))
 
     # edit function:
     def edit_click(self):
@@ -68,9 +68,9 @@ class CustomerView:
                 msg.showinfo("Edited!", message)
                 self.reset_form()
             else:
-                msg.showerror("Error: NOT Edited!", message)
+                msg.showerror("Error: Couldn't Edit!", message)
         except Exception as e:
-            msg.showerror("Error: NOT Edited!", str(e))
+            msg.showerror("Error: Couldn't Edit!", str(e))
 
     # remove function:
     def remove_click(self):
@@ -81,9 +81,9 @@ class CustomerView:
                     msg.showinfo("Removed!", message)
                     self.reset_form()
                 else:
-                    msg.showerror("Error: NOT Removed!", message)
+                    msg.showerror("Error: Couldn't Remove!", message)
             except Exception as e:
-                msg.showerror("Error: NOT Removed!", str(e))
+                msg.showerror("Error: Couldn't Remove!", str(e))
 
     # find all function:
     def find_all_click(self):
