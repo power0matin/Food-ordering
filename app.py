@@ -24,7 +24,7 @@ print(u)
 #
 # costumer app test
 CustomerController.save("aida", "shams", "asHe77@gmail.com", "09114567893", "aidaaa", "aida1234")
-#CustomerView()
+# CustomerView()
 #
 # payment app test
 PaymentController.save(3, "online", "blah blah", "drink")
