@@ -1,6 +1,6 @@
 from tkinter import *
 import tkinter.messagebox as msg
-from controller.admin_controller import AdminController
+from controller import AdminController
 from model.entity import Admin
 from view.component import LabelWithEntry, Table
 
@@ -48,6 +48,7 @@ class AdminView:
     def edit_click(self):
         try:
             status, message = AdminController.edit(
+                self.id.get(),
                 self.name.get(),
                 self.family.get(),
                 self.username.get(),

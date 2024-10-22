@@ -16,6 +16,7 @@ class AdminController:
     @exception_handling
     def edit(cls, id, name, family, username, password, access_level):
         admin = Admin(id, name, family, username, password, access_level)
+        print(admin)
         AdminService.edit(admin)
         return admin
 

@@ -1,6 +1,6 @@
 from tkinter import *
 import tkinter.messagebox as msg
-from controller.food_controller import DrinkController
+from controller import DrinkController
 from model.entity import Drink
 from view.component import LabelWithEntry, Table
 

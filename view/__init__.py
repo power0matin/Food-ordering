@@ -5,4 +5,3 @@ from view.food_view import FoodView
 from view.order_view import OrderView
 from view.payment_view import PaymentView
 from view.table_view import TableView
-

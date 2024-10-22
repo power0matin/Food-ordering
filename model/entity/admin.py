@@ -5,7 +5,7 @@ from model.tools.validation import pattern_validator
 class Admin(Base):
     __tablename__ = "admin_tbl"
 
-    _id = Column("id", Integer, primary_key=True, autoincrement=True)
+    id = Column(Integer, primary_key=True, autoincrement=True)
     _name = Column("name", String(50), nullable=False)
     _family = Column("family", String(50), nullable=False)
     _username = Column("username", String(30), nullable=False)
@@ -19,14 +19,6 @@ class Admin(Base):
         self.username = username
         self.password = password
         self.access_level = access_level
-
-    @property
-    def id(self):
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        self._id = id
 
     @property
     def name(self):
@@ -69,6 +61,6 @@ class Admin(Base):
         return self._access_level
 
     @access_level.setter
-    @pattern_validator(r"^\d{1,20}$", "Invalid access_level")
+    # @pattern_validator(r"^\d{1,20}$", "Invalid access_level")
     def access_level(self, access_level):
         self._access_level = access_level
