@@ -102,7 +102,7 @@ class TableView:
         win = Tk()
         win.title("Table View")
         win.resizable(False, False)
-        win.geometry("650x450")
+        win.geometry("900x450")
 
         self.id = LabelWithEntry(win, "Id", 20, 20, data_type="int", state="readonly")
         self.title = LabelWithEntry(win, "Title", 20, 60, data_type="text")
