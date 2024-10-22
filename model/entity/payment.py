@@ -46,9 +46,8 @@ class Payment(Base):
         return self._payment_type
 
     @payment_type.setter
+    @pattern_validator(r"^[a-zA-Z\s]{2,20}$", "Invalid Payment Type: Online or In Person!")
     def payment_type(self, payment_type):
-        if not payment_type:
-            raise ValueError("Invalid Payment Type.")
         self._payment_type = payment_type
 
     @property
