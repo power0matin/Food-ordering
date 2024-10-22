@@ -123,27 +123,26 @@ class AdminView:
         win = Tk()
         win.title("Admin View")
         win.resizable(False, False)
-        win.geometry("650x450")
+        win.geometry("900x450")
 
-        self.id = LabelWithEntry(win, "Id", 20, 20, data_type="int", state="readonly")
-        self.name = LabelWithEntry(win, "Name", 20, 60)
-        self.family = LabelWithEntry(win, "Family", 20, 100)
-        self.username = LabelWithEntry(win, "Username", 20, 100)
-        self.password = LabelWithEntry(win, "Password", 20, 100)
-        self.access_level = LabelWithEntry(win, "Access Level", 20, 100, data_type="int")
+        self.id = LabelWithEntry(win, "Id", 25, 20, data_type="int", state="readonly")
+        self.name = LabelWithEntry(win, "Name", 25, 60)
+        self.family = LabelWithEntry(win, "Family", 25, 100)
+        self.username = LabelWithEntry(win, "Username", 25, 140)
+        self.password = LabelWithEntry(win, "Password", 25, 180)
+        self.access_level = LabelWithEntry(win, "Access Level", 25, 220)
 
         self.table = Table(win, ["Id", "Name", "Family", "Username", "Password", "Access Level"],
-                           [60, 100, 100, 100, 100, 100], 250, 20, self.table_click)
+                           [50, 100, 100, 100, 100, 100], 300, 20, self.table_click)
 
-        Button(win, text="Save", width=10, command=self.save_click).place(x=100, y=260)
-        Button(win, text="Edit", width=10, command=self.edit_click).place(x=100, y=290)
-        Button(win, text="Remove", width=10, command=self.remove_click).place(x=100, y=320)
-        Button(win, text="Find All", width=10, command=self.find_all_click).place(x=200, y=260)
-        Button(win, text="Find By Username", width=15, command=self.find_by_username_click).place(x=200, y=290)
-        Button(win, text="Find By Username & Password", width=20, command=self.find_by_username_password).place(x=200,
-                                                                                                                y=320)
-        Button(win, text="Find By Access Level", width=15, command=self.find_by_access_level_click).place(x=200, y=350)
+        Button(win, text="Save", width=15, command=self.save_click).place(x=100, y=280)
+        Button(win, text="Edit", width=15, command=self.edit_click).place(x=100, y=320)
+        Button(win, text="Remove", width=15, command=self.remove_click).place(x=100, y=360)
+        Button(win, text="Find All", width=15, command=self.find_all_click).place(x=230, y=280)
+        Button(win, text="Find By Username", width=20, command=self.find_by_username_click).place(x=230, y=320)
+        Button(win, text="Find By Username & Password", width=25, command=self.find_by_username_password).place(x=230,
+                                                                                                                y=360)
+        Button(win, text="Find By Access Level", width=20, command=self.find_by_access_level_click).place(x=230, y=400)
 
         self.reset_form()
-
         win.mainloop()
