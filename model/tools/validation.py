@@ -142,3 +142,10 @@ class Validation:
             raise ValueError(message)
         else:
             return pure_amount
+
+    @staticmethod
+    def payment_type_validator(payment_type, message):
+        if type(payment_type) == str and re.match(r"^(Online|In Person)$", payment_type):
+            return payment_type
+        else:
+            return ValueError(message)
