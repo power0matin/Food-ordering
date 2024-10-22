@@ -23,7 +23,9 @@ class Drink(Base):
     def id(self):
         return self._id
 
-
+    @id.setter
+    def id(self, id):
+        self._id = id
 
     @property
     def title(self):
@@ -31,7 +33,7 @@ class Drink(Base):
 
     @title.setter
     def title(self, title):
-        self._title =Validation.title_validator(title, "Invalid Title!")
+        self._title = Validation.title_validator(title, "Invalid Title!")
 
     @property
     def price(self):
@@ -39,7 +41,7 @@ class Drink(Base):
 
     @price.setter
     def price(self, price):
-        self._price =Validation.price_validator(price, "Invalid Price!")
+        self._price = Validation.price_validator(price, "Invalid Price!")
 
     @property
     def duration(self):
@@ -47,7 +49,7 @@ class Drink(Base):
 
     @duration.setter
     def duration(self, duration):
-        self._duration =Validation.duration_validator(duration, "Invalid Duration!")
+        self._duration = Validation.duration_validator(duration, "Invalid Duration!")
 
     @property
     def size(self):
