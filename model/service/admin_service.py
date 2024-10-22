@@ -7,18 +7,16 @@ class AdminService:
 
     @classmethod
     def save(cls, admin):
-        cls.repo.save(admin)
-        return admin
+        return cls.repo.save(admin)
 
     @classmethod
     def edit(cls, admin):
-        cls.repo.edit(admin)
-        return admin
+        return cls.repo.edit(admin)
 
     @classmethod
     def remove(cls, id):
-        cls.repo.remove(id)
-        return id
+        return cls.repo.remove(id)
+
 
     @classmethod
     def find_all(cls):
