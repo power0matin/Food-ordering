@@ -12,9 +12,9 @@ class AdminView:
         self.username.set("")
         self.password.set("")
         self.access_level.set(0)
-        self.refresh_table()
 
-    def table_click(self, selected_item):
+    @staticmethod
+    def table_click(selected_item):
         print(selected_item)
 
     def save_click(self):
@@ -32,7 +32,7 @@ class AdminView:
             else:
                 msg.showerror("Failed to Save", message)
         except Exception as e:
-            msg.showerror("Failed to Save", e)
+            msg.showerror("Failed to Save", str(e))
 
     def edit_click(self):
         try:
@@ -49,7 +49,7 @@ class AdminView:
             else:
                 msg.showerror("Failed to Edit", message)
         except Exception as e:
-            msg.showerror("Failed to Edit", e)
+            msg.showerror("Failed to Edit", str(e))
 
     def remove_click(self):
         if msg.askyesno("Remove", "Are you sure?"):
@@ -61,7 +61,7 @@ class AdminView:
                 else:
                     msg.showerror("Failed to Remove", message)
             except Exception as e:
-                msg.showerror("Failed to Remove", e)
+                msg.showerror("Failed to Remove", str(e))
 
     def find_all_click(self):
         try:
@@ -69,7 +69,7 @@ class AdminView:
             self.table.refresh_table(admins)
             msg.showinfo("Find All Successfully", admins)
         except Exception as e:
-            msg.showerror("Failed to Find", e)
+            msg.showerror("Failed to Find", str(e))
 
     def find_by_username_click(self):
         user = self.username.get()
@@ -81,7 +81,7 @@ class AdminView:
             else:
                 msg.showerror("Failed to Find By Username", user)
         except Exception as e:
-            msg.showerror("Failed to Find", e)
+            msg.showerror("Failed to Find", str(e))
 
     def find_by_username_password(self):
         user = self.username.get()
@@ -94,7 +94,7 @@ class AdminView:
             else:
                 msg.showerror("Failed to Find By Username", user)
         except Exception as e:
-            msg.showerror("Failed to Find", e)
+            msg.showerror("Failed to Find", str(e))
 
     def find_by_access_level_click(self):
         try:
@@ -106,7 +106,7 @@ class AdminView:
             else:
                 msg.showerror("Failed to Find By Access Level", access_level)
         except Exception as e:
-            msg.showerror("Failed to Find", e)
+            msg.showerror("Failed to Find", str(e))
 
     def __init__(self):
         win = Tk()
