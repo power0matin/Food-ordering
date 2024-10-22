@@ -115,10 +115,10 @@ class AdminView:
         win.geometry("650x450")
 
         self.id = LabelWithEntry(win, "Id", 20, 20, data_type="int", state="readonly")
-        self.name = LabelWithEntry(win, "Name", 20, 60, data_type="text")
-        self.family = LabelWithEntry(win, "Family", 20, 100, data_type="text")
-        self.username = LabelWithEntry(win, "Username", 20, 100, data_type="text")
-        self.password = LabelWithEntry(win, "Password", 20, 100, data_type="text")
+        self.name = LabelWithEntry(win, "Name", 20, 60)
+        self.family = LabelWithEntry(win, "Family", 20, 100)
+        self.username = LabelWithEntry(win, "Username", 20, 100)
+        self.password = LabelWithEntry(win, "Password", 20, 100)
         self.access_level = LabelWithEntry(win, "Access Level", 20, 100, data_type="int")
 
         self.table = Table(win, ["Id", "Name", "Family", "Username", "Password", "Access Level"],
