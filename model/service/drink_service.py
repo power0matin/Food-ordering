@@ -1,13 +1,13 @@
 from model.entity import Drink
-from model.repository.crud_repository import CrudRepository
+from model.repository import CrudRepository
 
 
 class DrinkService:
     repo = CrudRepository(Drink)
 
     @classmethod
-    def save(cls , drink):
-        return cls.repo.save(new_drink)
+    def save(cls, drink):
+        return cls.repo.save(drink)
 
     @classmethod
     def edit(cls, drink):
@@ -31,4 +31,4 @@ class DrinkService:
 
     @classmethod
     def find_by_status(cls, status):
-        return cls.repo.find_by(Drink.status == status)
+        return cls.repo.find_by(Drink.available == status)

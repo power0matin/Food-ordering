@@ -1,5 +1,5 @@
-from model.entity import Admin
-from model.repository.crud_repository import CrudRepository
+from model.entity import Admin, and_
+from model.repository import CrudRepository
 
 
 class AdminService:
@@ -35,7 +35,7 @@ class AdminService:
 
     @classmethod
     def find_by_username_password(cls, username, password):
-        return cls.repo.find_by((Admin.username == username) & (Admin.password == password))
+        return cls.repo.find_by(and_(Admin.username == username, Admin.password == password))
 
     @classmethod
     def find_by_access_level(cls, access_level):

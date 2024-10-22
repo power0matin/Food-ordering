@@ -1,6 +1,6 @@
-from model.service.table_service import TableService
-from model.entity.table import Table
-from model.tools.decorators import exception_handling
+from model.entity import Table
+from model.service import TableService
+from model.tools import exception_handling
 
 
 class TableController:
@@ -10,20 +10,19 @@ class TableController:
     def save(cls, title, location, number, is_empty):
         table = Table(None, title, location, number, is_empty)
         TableService.save(table)
-        return "Table saved successfully"
+        return table
 
     @classmethod
     @exception_handling
     def edit(cls, id, title, location, number, is_empty):
         table = Table(id, title, location, number, is_empty)
         TableService.edit(table)
-        return "Table edited successfully"
+        return table
 
     @classmethod
     @exception_handling
     def remove(cls, id):
-        TableService.remove(id)
-        return "Table removed successfully"
+        return TableService.remove(id)
 
     @classmethod
     @exception_handling

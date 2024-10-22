@@ -1,6 +1,6 @@
-from model.entity.food import Food
-from model.service.food_service import FoodService
-from model.tools.decorators import exception_handling
+from model.entity import Food
+from model.service import FoodService
+from model.tools import exception_handling
 
 
 class FoodController:
@@ -22,8 +22,7 @@ class FoodController:
     @classmethod
     @exception_handling
     def remove(cls, id):
-        old_food = FoodService.remove(id)
-        return old_food
+        return FoodService.remove(id)
 
     @classmethod
     @exception_handling

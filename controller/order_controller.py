@@ -1,6 +1,6 @@
-from model.entity.order import Order
-from model.service.order_service import OrderService
-from model.tools.decorators import *
+from model.entity import Order
+from model.service import OrderService
+from model.tools import *
 
 
 class OrderController:
@@ -10,26 +10,24 @@ class OrderController:
     def save(cls, amount, discount, pure_amount):
         order = Order(None, amount, discount, pure_amount)
         OrderService.save(order)
-        return True, "Order saved"
+        return order
 
     @classmethod
     @exception_handling
     def edit(cls, id, amount, discount, pure_amount):
         order = Order(id, amount, discount, pure_amount)
         OrderService.edit(order)
-        return True, "Order saved"
+        return order
 
     @classmethod
     @exception_handling
     def remove(cls, id):
-        OrderService.remove(id)
-        return True, "Order removed"
+        return OrderService.remove(id)
 
     @classmethod
     @exception_handling
     def find_by_id(cls, id):
-        OrderService.find_by_id(id)
-        return True, "Order found"
+        return OrderService.find_by_id(id)
 
     @classmethod
     @exception_handling

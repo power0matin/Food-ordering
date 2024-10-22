@@ -1,5 +1,5 @@
 from model.entity import Food
-from model.repository.crud_repository import CrudRepository
+from model.repository import CrudRepository
 
 
 class FoodService:
@@ -35,4 +35,4 @@ class FoodService:
 
     @classmethod
     def find_by_status(cls, status):
-        return cls.repo.find_by(Food.status == status)
+        return cls.repo.find_by(Food.available == status)

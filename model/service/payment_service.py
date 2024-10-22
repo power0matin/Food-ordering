@@ -1,5 +1,5 @@
 from model.entity import Payment
-from model.repository.crud_repository import CrudRepository
+from model.repository import CrudRepository
 
 
 class PaymentService:

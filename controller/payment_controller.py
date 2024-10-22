@@ -1,13 +1,10 @@
-# payment controller using class method and exception handling
-
-from model.entity.payment import Payment
-from model.service.payment_service import PaymentService
-from model.tools.decorators import exception_handling
+from model.entity import Payment
+from model.service import PaymentService
+from model.tools import exception_handling
 
 
 class PaymentController:
 
-    # save:
     @classmethod
     @exception_handling
     def save(cls, amount, payment_type, description, order):
@@ -15,7 +12,6 @@ class PaymentController:
         PaymentService.save(payment)
         return payment
 
-    # edit:
     @classmethod
     @exception_handling
     def edit(cls, id, amount, payment_type, description, order):
@@ -23,39 +19,32 @@ class PaymentController:
         PaymentService.edit(payment)
         return payment
 
-    # remove:
     @classmethod
     @exception_handling
     def remove(cls, id):
-        old_payment = PaymentService.remove(id)
-        return old_payment
+        return PaymentService.remove(id)
 
-    # find all:
     @classmethod
     @exception_handling
     def find_all(cls):
-        return True, PaymentService.find_all()
+        return  PaymentService.find_all()
 
-    # find by id:
     @classmethod
     @exception_handling
     def find_by_id(cls, id):
-        return True, PaymentService.find_by_id(id)
+        return  PaymentService.find_by_id(id)
 
-    # find by username:
     @classmethod
     @exception_handling
     def find_by_payment_type(cls, payment_type):
-        return True, PaymentService.find_by_payment_type(payment_type)
+        return  PaymentService.find_by_payment_type(payment_type)
 
-    # find by amount:
     @classmethod
     @exception_handling
     def find_by_amount(cls, amount):
-        return True, PaymentService.find_by_amount(amount)
+        return  PaymentService.find_by_amount(amount)
 
-    # find by order:
     @classmethod
     @exception_handling
     def find_by_order(cls, order):
-        return True, PaymentService.find_by_order(order)
+        return  PaymentService.find_by_order(order)

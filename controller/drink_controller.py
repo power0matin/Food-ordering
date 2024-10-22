@@ -1,10 +1,9 @@
-from model.entity.drink import Drink
-from model.service.drink_service import DrinkService
-from model.tools.decorators import exception_handling
+from model.entity import Drink
+from model.service import DrinkService
+from model.tools import exception_handling
 
 
 class DrinkController:
-
 
     @classmethod
     @exception_handling
@@ -24,8 +23,7 @@ class DrinkController:
     @classmethod
     @exception_handling
     def remove(cls, id):
-        DrinkService.remove(id)
-        return old_drink
+        return  DrinkService.remove(id)
 
 
     @classmethod

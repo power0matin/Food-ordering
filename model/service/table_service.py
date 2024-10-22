@@ -1,5 +1,5 @@
 from model.entity import Table
-from model.repository.crud_repository import CrudRepository
+from model.repository import CrudRepository
 
 
 class TableService:
