@@ -10,7 +10,7 @@ class TableController:
     def save(cls, title, location, number, is_empty):
         table = Table(None, title, location, number, is_empty)
         TableService.save(table)
-        return True, "Table saved successfully"
+        return "Table saved successfully"
 
     @classmethod
     @exception_handling
@@ -22,21 +22,21 @@ class TableController:
     @classmethod
     @exception_handling
     def remove(cls, id):
-            table.remove(id)
-            return True, "Table removed successfully"
+        TableService.remove(id)
+        return "Table removed successfully"
 
     @classmethod
     @exception_handling
     def find_all(cls):
-            return True, TableService.find_all()
+        return TableService.find_all()
 
 
     @classmethod
     @exception_handling
     def find_empty_table(cls):
-            return TableService.find_empty_table()
+        return TableService.find_empty_table()
 
     @classmethod
     @exception_handling
     def find_by_number(cls, number):
-            return TableService.find_by_number(number)
+        return TableService.find_by_number(number)
