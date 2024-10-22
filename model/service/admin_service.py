@@ -17,7 +17,6 @@ class AdminService:
     def remove(cls, id):
         return cls.repo.remove(id)
 
-
     @classmethod
     def find_all(cls):
         return cls.repo.find_all()

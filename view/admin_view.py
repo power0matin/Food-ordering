@@ -135,7 +135,6 @@ class AdminView:
         self.table = Table(win, ["Id", "Name", "Family", "Username", "Password", "Access Level"],
                            [60, 100, 100, 100, 100, 100], 250, 20, self.table_click)
 
-
         Button(win, text="Save", width=10, command=self.save_click).place(x=100, y=260)
         Button(win, text="Edit", width=10, command=self.edit_click).place(x=100, y=290)
         Button(win, text="Remove", width=10, command=self.remove_click).place(x=100, y=320)
