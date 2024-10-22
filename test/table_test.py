@@ -19,7 +19,7 @@ TableController.save("table3", "right", 3, True)
 
 # Find Empty Table
 
-# TableController.find_empty_table()
+TableController.find_empty_tables()
 
 # Find By Number
 
