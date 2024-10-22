@@ -47,7 +47,9 @@ class Drink(Base):
     def duration(self):
         return self._duration
 
-
+    @duration.setter
+    def duration(self, duration):
+        self._duration = Validation.duration_validator(duration, "Invalid Duration!")
 
     @property
     def size(self):
