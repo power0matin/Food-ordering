@@ -57,7 +57,6 @@ class CustomerView:
     def edit_click(self):
         try:
             status, message = CustomerController.edit(
-                self.id.get(),
                 self.name.get(),
                 self.family.get(),
                 self.email.get(),
@@ -76,42 +75,50 @@ class CustomerView:
     # remove function:
     def remove_click(self):
         if msg.askyesno("Remove Customer", "Are you sure?"):
-            status, message = CustomerController.remove(self.id.get())
-            if status:
-                msg.showinfo("Removed!", message)
-                self.reset_form()
-            else:
-                msg.showerror("Error: NOT Removed!", message)
+            try:
+                status, message = CustomerController.remove(self.id.get())
+                if status:
+                    msg.showinfo("Removed!", message)
+                    self.reset_form()
+                else:
+                    msg.showerror("Error: NOT Removed!", message)
+            except Exception as e:
+                msg.showerror("Error: NOT Removed!", str(e))
 
     # find all function:
     def find_all_click(self):
-        if msg.askyesno("Find All Customers"):
-            status, message = CustomerController.find_all()
-            if status:
-                msg.showinfo("Found ALL!", message)
-                self.reset_form()
-            else:
-                msg.showerror("Error: NOT Found!", message)
+        try:
+            customers = CustomerController.find_all()
+            self.table.refresh_table(customers)
+            msg.showinfo("Found All!", customers)
+        except Exception as e:
+            msg.showerror("Error: NOT Found!", str(e))
 
     # find by id function:
     def find_by_id_click(self):
-        if msg.askyesno("Find By Id"):
-            status, message = CustomerController.find_by_id(self.id.get())
-            if status:
-                msg.showinfo("Found!", message)
-                self.reset_form()
+        id = self.id.get()
+        try:
+            customer = CustomerController.find_by_id(id)
+            if customer:
+                self.table.refresh_table(admin)
+                msg.showinfo("Found By ID!", customer)
             else:
-                msg.showerror("Error: NOT Found!", message)
+                msg.showerror("Error: Couldn't Find By ID!", id)
+        except Exception as e:
+            msg.showerror("Error: Couldn't Find By ID!", str(e))
 
     # find by username function:
     def find_by_username_click(self):
-        if msg.askyesno("Find By Username"):
-            status, message = CustomerController.find_by_username(self.username.get())
-            if status:
-                msg.showinfo("Found!", message)
-                self.reset_form()
+        user = self.username.get()
+        try:
+            customer = CustomerController.find_by_username(user)
+            if customer:
+                self.table.refresh_table(customer)
+                msg.showinfo("Found By Username!", customer)
             else:
-                msg.showerror("Error: NOT Found!", message)
+                msg.showerror("Error: Couldn't Find By Username!", user)
+        except Exception as e:
+            msg.showerror("Error: Couldn't Find By Username!", str(e))
 
     # find by username and password function:
     def find_by_username_and_password_click(self):
