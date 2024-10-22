@@ -6,12 +6,12 @@
 from controller.drink_controller import DrinkController
 
 
-DrinkController.save("Coca Cola", 1.5, 250, "Soft drink")
+DrinkController.save("Coca Cola", 1.5, 250, "medium")
 
 drink_id = 1
 
 
-DrinkController.edit(drink_id, "Pepsi", 1.2, 300, "Soft drink updated")
+DrinkController.edit(drink_id, "Pepsi", 1.2, 300, "medium drink updated")
 
 
 DrinkController.remove(drink_id)
