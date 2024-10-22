@@ -33,8 +33,8 @@ class TableController:
 
     @classmethod
     @exception_handling
-    def find_empty_table(cls):
-        return TableService.find_empty_table()
+    def find_empty_tables(cls):
+        return TableService.find_empty_table(Table.is_empty == True)
 
     @classmethod
     @exception_handling
