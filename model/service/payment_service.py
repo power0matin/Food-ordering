@@ -7,18 +7,15 @@ class PaymentService:
 
     @classmethod
     def save(cls, payment):
-        cls.repo.save(payment)
-        return payment
+        return cls.repo.save(payment)
 
     @classmethod
     def edit(cls, payment):
-        cls.repo.edit(payment)
-        return payment
+        return cls.repo.edit(payment)
 
     @classmethod
     def remove(cls, id):
-        cls.repo.remove(id)
-        return id
+        return cls.repo.remove(id)
 
     @classmethod
     def find_all(cls):

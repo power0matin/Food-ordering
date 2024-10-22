@@ -10,20 +10,17 @@ class CustomerService:
     # save:
     @classmethod
     def save(cls, customer):
-        cls.repo.save(customer)
-        return customer
+        return cls.repo.save(customer)
 
     # edit:
     @classmethod
     def edit(cls, customer):
-        cls.repo.edit(customer)
-        return customer
+        return cls.repo.edit(customer)
 
     # remove:
     @classmethod
     def remove(cls, id):
-        cls.repo.remove(id)
-        return id
+        return cls.repo.remove(id)
 
     # find all:
     @classmethod
