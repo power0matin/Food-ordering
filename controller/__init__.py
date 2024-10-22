@@ -1,4 +1,8 @@
-# from controller.admin_controller import AdminController
-# from controller.payment_controller import PaymentController
-# from controller.customer_controller import CustomerController
-from controller import *
+from controller.admin_controller import AdminController
+from controller.customer_controller import CustomerController
+from controller.drink_controller import DrinkController
+from controller.food_controller import FoodController
+from controller.order_controller import OrderController
+from controller.payment_controller import PaymentController
+from controller.table_controller import TableController
+
