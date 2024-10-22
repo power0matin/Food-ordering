@@ -6,27 +6,33 @@ class FoodService:
     repo = CrudRepository(Food)
 
     @classmethod
-    def save(cls, title, price, duration, description, status=True):
-        new_food = Food(title=title, price=price, duration=duration, description=description, status=status)
-        return cls.repo.save(new_food)
+    def save(cls, food):
+        return cls.repo.save(food)
 
     @classmethod
     def edit(cls, food):
         return cls.repo.edit(food)
 
     @classmethod
-    def remove(cls, food_id):
-        cls.repo.remove(food_id)
-        return food_id
-
-    @classmethod
-    def find_by_id(cls, food_id):
-        return cls.repo.find_by_id(food_id)
+    def remove(cls, id):
+        return cls.repo.remove(id)
 
     @classmethod
     def find_all(cls):
         return cls.repo.find_all()
 
     @classmethod
+    def find_by_id(cls, id):
+        return cls.repo.find_by_id(id)
+
+    @classmethod
+    def find_by(cls, find_statement):
+        return cls.repo.find_by(find_statement)
+
+    @classmethod
     def find_by_title(cls, title):
-        return cls.repo.find_by(Food._title.like(f"%{title}%"))
+        return cls.repo.find_by(Food.title.like(f"%{title}%"))
+
+    @classmethod
+    def find_by_status(cls, status):
+        return cls.repo.find_by(Food.status == status)
