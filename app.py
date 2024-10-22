@@ -28,6 +28,6 @@ CustomerController.save("aida", "shams", "asHe77@gmail.com", "09114567893", "aid
 #
 # payment app test
 PaymentController.save(3, "online", "blah blah", "drink")
-# PaymentView()
+PaymentView()
 
 TableController.save("table1", "right", 2, True)

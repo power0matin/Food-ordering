@@ -1,4 +1,3 @@
-import tkinter
 from tkinter import *
 import tkinter.messagebox as msg
 from tkinter.ttk import Combobox
@@ -119,7 +118,8 @@ class PaymentView:
         # entry view:
         self.id = LabelWithEntry(win, "Id", 30, 40, data_type="int", state="readonly")
         self.amount = LabelWithEntry(win, "Amount", 30, 80)
-        self.payment_type = Combobox(win,values=["Online","In Person"])
+#self.payment_type.setAccessibleName("Payment Type:")
+        self.payment_type = Combobox(win,values=["Online","In Person"], state="readonly")
         self.payment_type.place(x=80,y=120)
         self.description = LabelWithEntry(win, "Description", 30, 160)
         self.order = LabelWithEntry(win, "Order", 30, 200)
