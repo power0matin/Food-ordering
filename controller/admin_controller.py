@@ -28,24 +28,24 @@ class AdminController:
     @classmethod
     @exception_handling
     def find_all(cls):
-        return True, AdminService.find_all()
+        return AdminService.find_all()
 
     @classmethod
     @exception_handling
     def find_by_id(cls, id):
-        return True, AdminService.find_by_id(id)
+        return  AdminService.find_by_id(id)
 
     @classmethod
     @exception_handling
     def find_by_username(cls, username):
-        return True, AdminService.find_by_username(username)
+        return AdminService.find_by_username(username)
 
     @classmethod
     @exception_handling
     def find_by_username_password(cls, username, password):
-        return True, AdminService.find_by_username_password(username, password)
+        return  AdminService.find_by_username_password(username, password)
 
     @classmethod
     @exception_handling
     def find_by_access_level(cls, access_level):
-        return True, AdminService.find_by_access_level(access_level)
+        return  AdminService.find_by_access_level(access_level)

@@ -9,7 +9,7 @@ def exception_handling(function):
                 Logger.info(f"{function.__qualname__}{args[1:]} [RETURNED] : {output}")
             else:
                 Logger.info(f"{function.__qualname__}{args[1:]}")
-            return output
+            return True, output
         except Exception as e:
             #e.with_traceback()
             Logger.error(f"{function.__qualname__}{args[1:]} [RAISED EXCEPTION] : {e}")
