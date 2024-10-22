@@ -1,6 +1,7 @@
 from tkinter import *
 import tkinter.messagebox as msg
 from controller.admin_controller import AdminController
+from model.entity import Admin
 from view.component import LabelWithEntry, Table
 
 
@@ -12,10 +13,20 @@ class AdminView:
         self.username.set("")
         self.password.set("")
         self.access_level.set(0)
+        status, data = AdminController.find_all()
+        if status:
+            self.table.refresh_table(data)
+        else:
+            msg.showerror("Error", data)
 
-    @staticmethod
-    def table_click(selected_item):
-        print(selected_item)
+    def table_click(self, selected_item):
+        admin = Admin(*selected_item)
+        self.id.set(admin.id)
+        self.name.set(admin.name)
+        self.family.set(admin.family)
+        self.username.set(admin.username)
+        self.password.set(admin.password)
+        self.access_level.set(admin.access_level)
 
     def save_click(self):
         try:
@@ -123,7 +134,7 @@ class AdminView:
 
         self.table = Table(win, ["Id", "Name", "Family", "Username", "Password", "Access Level"],
                            [60, 100, 100, 100, 100, 100], 250, 20, self.table_click)
-        self.table.refresh_table(AdminController.find_all())
+
 
         Button(win, text="Save", width=10, command=self.save_click).place(x=100, y=260)
         Button(win, text="Edit", width=10, command=self.edit_click).place(x=100, y=290)
