@@ -6,8 +6,7 @@ class DrinkService:
     repo = CrudRepository(Drink)
 
     @classmethod
-    def save(cls, title, price, duration, status=True):
-        new_drink = Drink(title=title, price=price, duration=duration, status=status)
+    def save(cls , drink):
         return cls.repo.save(new_drink)
 
     @classmethod
@@ -15,22 +14,21 @@ class DrinkService:
         return cls.repo.edit(drink)
 
     @classmethod
-    def remove(cls, drink_id):
-        cls.repo.remove(drink_id)
-        return drink_id
+    def remove(cls, id):
+        return cls.repo.remove(id)
 
     @classmethod
-    def find_by_id(cls, drink_id):
-        return cls.repo.find_by_id(drink_id)
+    def find_by_id(cls, id):
+        return cls.repo.find_by_id(id)
 
     @classmethod
-    def find_all(cls):
-        return cls.repo.find_all()
+    def find_by(cls, find_statement):
+        return cls.repo.find_by(find_statement)
 
     @classmethod
     def find_by_title(cls, title):
-        return cls.repo.find_by(drink._title.like(f"%{title}%"))
+        return cls.repo.find_by(Drink.title.like(f"%{title}%"))
 
     @classmethod
-    def search_drink_by_title_and_status(cls, title, status):
-        return cls.repo.find_by(Drink.title == title and Drink.status == status)
+    def find_by_status(cls, status):
+        return cls.repo.find_by(Drink.status == status)
