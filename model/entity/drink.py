@@ -55,9 +55,7 @@ class Drink(Base):
     def size(self):
         return self._size
 
-    @size.setter
-    def size(self, size):
-        self._size =Validation.size_validator(size, "Invalid Size!")
+
 
     @property
     def available(self):
