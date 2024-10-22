@@ -1,8 +1,7 @@
 from tkinter import *
-import tkinter.ttk as ttk
 import tkinter.messagebox as msg
-
-from controller.drink_controller import DrinkController
+from controller.food_controller import DrinkController
+from model.entity import Drink
 from view.component import LabelWithEntry, Table
 
 
@@ -14,18 +13,24 @@ class DrinkView:
         self.duration.set(0)
         self.size.set("")
         self.available.set(True)
+        status, data = DrinkController.find_all()
+        if status:
+            self.table.refresh_table(data)
+        else:
+            msg.showerror("Error", data)
 
     def table_click(self, selected_item):
-        self.id.set(selected_item['values'][0])
-        self.title.set(selected_item['values'][1])
-        self.price.set(selected_item['values'][2])
-        self.duration.set(selected_item['values'][3])
-        self.size.set(selected_item['values'][4])
-        self.available.set(selected_item['values'][5])
+        drink = Drink(*selected_item)
+        self.id.set(drink.id)
+        self.title.set(drink.title)
+        self.price.set(drink.price)
+        self.duration.set(drink.duration)
+        self.size.set(drink.size)
+        self.available.set(drink.available)
 
     def save_click(self):
         try:
-            drink = DrinkController.save(
+            drink, message = DrinkController.save(
                 self.title.get(),
                 self.price.get(),
                 self.duration.get(),
@@ -50,25 +55,25 @@ class DrinkView:
                 self.size.get(),
                 self.available.get()
             )
-            if drink:
-                msg.showinfo("Edit", "Drink updated successfully.")
+            if status:
+                msg.showinfo("Edited Successfully", message)
                 self.reset_form()
             else:
-                msg.showerror("Edit Error", "Failed to update drink.")
+                msg.showerror("Failed to Edit", message)
         except Exception as e:
-            msg.showerror("Edit Error", str(e))
+            msg.showerror("Failed to Edit", str(e))
 
     def remove_click(self):
         if msg.askyesno("Remove Drink", "Are you sure you want to remove this drink?"):
             try:
-                drink = DrinkController.remove(self.id.get())
-                if drink:
-                    msg.showinfo("Remove", "Drink removed successfully.")
+                status, message = DrinkController.remove(self.id.get())
+                if status:
+                    msg.showinfo("Removed Successfully", message)
                     self.reset_form()
                 else:
-                    msg.showerror("Remove Error", "Drink not found or failed to remove.")
+                    msg.showerror("Failed to Remove", message)
             except Exception as e:
-                msg.showerror("Remove Error", str(e))
+                msg.showerror("Failed to Remove", str(e))
 
     def __init__(self):
         win = Tk()
