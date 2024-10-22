@@ -36,36 +36,42 @@ class CustomerView:
 
     # save function:
     def save_click(self):
-        status, message = CustomerController.save(
-            self.name.get(),
-            self.family.get(),
-            self.email.get(),
-            self.phone.get(),
-            self.username.get(),
-            self.password.get()
-        )
-        if status:
-            msg.showinfo("Saved!", message)
-            self.reset_form()
-        else:
-            msg.showerror("Error: NOT Saved!", message)
+        try:
+            status, message = CustomerController.save(
+                self.name.get(),
+                self.family.get(),
+                self.email.get(),
+                self.phone.get(),
+                self.username.get(),
+                self.password.get()
+            )
+            if status:
+                msg.showinfo("Saved!", message)
+                self.reset_form()
+            else:
+                msg.showerror("Error: NOT Saved!", message)
+        except Exception as e:
+            msg.showerror("Error: NOT Saved!", str(e))
 
     # edit function:
     def edit_click(self):
-        status, message = CustomerController.edit(
-            self.id.get(),
-            self.name.get(),
-            self.family.get(),
-            self.email.get(),
-            self.phone.get(),
-            self.username.get(),
-            self.password.get()
-        )
-        if status:
-            msg.showinfo("Edited!", message)
-            self.reset_form()
-        else:
-            msg.showerror("Error: NOT Edited!", message)
+        try:
+            status, message = CustomerController.edit(
+                self.id.get(),
+                self.name.get(),
+                self.family.get(),
+                self.email.get(),
+                self.phone.get(),
+                self.username.get(),
+                self.password.get()
+            )
+            if status:
+                msg.showinfo("Edited!", message)
+                self.reset_form()
+            else:
+                msg.showerror("Error: NOT Edited!", message)
+        except Exception as e:
+            msg.showerror("Error: NOT Edited!", str(e))
 
     # remove function:
     def remove_click(self):
@@ -140,7 +146,6 @@ class CustomerView:
                            20,
                            self.table_click
                            )
-        self.table.refresh_table(CustomerController.find_all()[1])
 
         # buttons view:
         Button(win, text="Save", width=10, command=self.save_click).place(x=300, y=260)
@@ -151,6 +156,7 @@ class CustomerView:
         Button(win, text="Find By Username", width=15, command=self.find_by_username_click).place(x=350, y=320)
         Button(win, text="Find By Username & Password", width=30,
                command=self.find_by_username_and_password_click).place(x=520, y=320)
+
         self.reset_form()
 
         win.mainloop()
