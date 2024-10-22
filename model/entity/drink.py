@@ -19,9 +19,7 @@ class Drink(Base):
         self.size = size
         self.available = available
 
-    @property
-    def id(self):
-        return self._id
+
 
     @id.setter
     def id(self, id):
