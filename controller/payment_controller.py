@@ -13,7 +13,7 @@ class PaymentController:
     def save(cls, amount, payment_type, description, order):
         payment = Payment(None, amount, payment_type, description, order)
         PaymentService.save(payment)
-        return True, "Payment Saved!"
+        return payment
 
     # edit:
     @classmethod
@@ -21,14 +21,14 @@ class PaymentController:
     def edit(cls, id, amount, payment_type, description, order):
         payment = Payment(id, amount, payment_type, description, order)
         PaymentService.edit(payment)
-        return True, "Payment Edited!"
+        return payment
 
     # remove:
     @classmethod
     @exception_handling
     def remove(cls, id):
-        PaymentService.remove(id)
-        return True, "Payment Removed!"
+        old_payment = PaymentService.remove(id)
+        return old_payment
 
     # find all:
     @classmethod
