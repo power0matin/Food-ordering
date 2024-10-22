@@ -20,7 +20,7 @@ class AdminView:
             msg.showerror("Error", data)
 
     def table_click(self, selected_item):
-        admin = Admin(*selected_item)
+        admin = AdminController.find_by_id(selected_item[0])
         self.id.set(admin.id)
         self.name.set(admin.name)
         self.family.set(admin.family)

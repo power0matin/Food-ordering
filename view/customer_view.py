@@ -1,14 +1,12 @@
-# customer_view - Aida Shams
 from tkinter import *
 import tkinter.messagebox as msg
-from controller.customer_controller import CustomerController
+from controller import CustomerController
 from model.entity import admin, Customer
 from view.component import LabelWithEntry, Table
 
 
 class CustomerView:
 
-    # reset forms:
     def reset_form(self):
         self.id.set(0)
         self.name.set("")
@@ -23,9 +21,8 @@ class CustomerView:
         else:
             msg.showerror("Error", data)
 
-    # table function:
     def table_click(self, selected_item):
-        customer = Customer(*selected_item)
+        _, customer = CustomerController.find_by_id(selected_item[0])
         self.id.set(customer.id)
         self.name.set(customer.name)
         self.family.set(customer.family)
@@ -34,7 +31,6 @@ class CustomerView:
         self.username.set(customer.username)
         self.password.set(customer.password)
 
-    # save function:
     def save_click(self):
         try:
             status, message = CustomerController.save(
@@ -53,7 +49,6 @@ class CustomerView:
         except Exception as e:
             msg.showerror("Error: Couldn't Save!", str(e))
 
-    # edit function:
     def edit_click(self):
         try:
             status, message = CustomerController.edit(
@@ -72,7 +67,6 @@ class CustomerView:
         except Exception as e:
             msg.showerror("Error: Couldn't Edit!", str(e))
 
-    # remove function:
     def remove_click(self):
         if msg.askyesno("Remove Customer", "Are you sure?"):
             try:
@@ -85,7 +79,6 @@ class CustomerView:
             except Exception as e:
                 msg.showerror("Error: Couldn't Remove!", str(e))
 
-    # find all function:
     def find_all_click(self):
         try:
             customers = CustomerController.find_all()
@@ -94,7 +87,6 @@ class CustomerView:
         except Exception as e:
             msg.showerror("Error: NOT Found!", str(e))
 
-    # find by id function:
     def find_by_id_click(self):
         id = self.id.get()
         try:
@@ -107,7 +99,6 @@ class CustomerView:
         except Exception as e:
             msg.showerror("Error: Couldn't Find By ID!", str(e))
 
-    # find by username function:
     def find_by_username_click(self):
         user = self.username.get()
         try:
@@ -120,7 +111,6 @@ class CustomerView:
         except Exception as e:
             msg.showerror("Error: Couldn't Find By Username!", str(e))
 
-    # find by username and password function:
     def find_by_username_and_password_click(self):
         if msg.askyesno("Find By Username & Password"):
             status, message = CustomerController.find_by_username_and_password(self.username.get(), self.password.get())

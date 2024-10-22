@@ -12,7 +12,7 @@ class Customer(Base):
     _name = Column("name", String(20), nullable=False)
     _family = Column("family", String(20), nullable=False)
     _email = Column("email", String(50), nullable=False)
-    _phone = Column("phone", String(50), nullable=False)
+    _phone = Column("phone", String(11))
     _username = Column("username", String(20), nullable=False)
     _password = Column("password", String(20), nullable=False)
 
