@@ -31,7 +31,7 @@ class FoodService:
 
     @classmethod
     def find_by_title(cls, title):
-        return cls.repo.find_by(Food.title.like(f"%{title}%"))
+        return cls.repo.find_by(Food._title.like(f"%{title}%"))
 
     @classmethod
     def find_by_status(cls, status):

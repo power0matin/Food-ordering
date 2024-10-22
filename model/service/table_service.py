@@ -22,6 +22,10 @@ class TableService:
         return cls.repo.find_all()
 
     @classmethod
+    def find_by_id(cls, id):
+        return cls.repo.find_by_id(id)
+
+    @classmethod
     def find_empty_table(cls, is_empty):
         return cls.repo.find_by(Table.is_empty == is_empty)
 

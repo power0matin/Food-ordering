@@ -32,6 +32,11 @@ class TableController:
 
     @classmethod
     @exception_handling
+    def find_by_id(cls,id):
+        return TableService.find_by_id(id)
+
+    @classmethod
+    @exception_handling
     def find_empty_tables(cls):
         return TableService.find_empty_table(Table.is_empty == True)
 

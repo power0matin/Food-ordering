@@ -8,7 +8,7 @@ class Drink(Base):
     _title = Column("title", String(50), nullable=False)
     _price = Column("price", Float, nullable=False)
     _duration = Column("duration", Integer, nullable=False)
-    _size = Column("size", String(10), nullable=False)
+    _size = Column("size", String(25), nullable=False)
     _available = Column("available", Boolean, default=True)
 
     def __init__(self, id, title, price, duration, size, available=True):

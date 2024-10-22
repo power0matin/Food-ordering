@@ -4,7 +4,7 @@ from model.tools.validation import *
 class Table(Base):
     __tablename__ = "table_tbl"
 
-    _id = Column("id",Integer, primary_key=True, autoincrement=True)
+    id = Column(Integer, primary_key=True, autoincrement=True)
     _title = Column("title", String(30), nullable=False)
     _location = Column("location", String(30), nullable=False)
     _number = Column("number", Integer, nullable=False)
@@ -16,14 +16,6 @@ class Table(Base):
         self.location = location
         self.number = number
         self.is_empty = is_empty
-
-    @property
-    def id(self):
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        self._id = id
 
     @property
     def title(self):

@@ -78,9 +78,10 @@ class Validation:
 
     @staticmethod
     def title_validator(title, error_message):
-        if not title or len(title) > 50:
+        if title or len(title) > 50:
+            return title
+        else:
             raise ValueError(error_message)
-        return title
 
     @staticmethod
     def price_validator(price, error_message):
@@ -96,9 +97,11 @@ class Validation:
 
     @staticmethod
     def size_validator(size, error_message):
-        if not size or len(size) > 10:
+        if type(size) == str and re.match(r"^[a-zA-Z0-9\s]{3,25}$", size):
+            return size
+        else:
             raise ValueError(error_message)
-        return size
+
 
     @staticmethod
     def description_validator(description, error_message):

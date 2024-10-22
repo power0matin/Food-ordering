@@ -21,7 +21,7 @@ class FoodView:
             msg.showerror("Error", data)
 
     def table_click(self, selected_item):
-        food = Food(*selected_item)
+        _, food = FoodController.find_by_id(selected_item[0])
         self.id.set(food.id)
         self.title.set(food.title)
         self.description.set(food.description)
@@ -94,7 +94,6 @@ class FoodView:
 
         self.table = Table(win, ["Id", "Title", "Description", "Price", "Duration", "Size", "Available"],
                            [60, 100, 150, 100, 80, 80, 60], 250, 20, self.table_click)
-        self.table.refresh_table(FoodController.find_all()[1])
 
         Button(win, text="Save", width=10, command=self.save_click).place(x=100, y=300)
         Button(win, text="Edit", width=10, command=self.edit_click).place(x=100, y=330)

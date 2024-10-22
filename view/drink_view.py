@@ -20,7 +20,8 @@ class DrinkView:
             msg.showerror("Error", data)
 
     def table_click(self, selected_item):
-        drink = Drink(*selected_item)
+        print(selected_item)
+        _, drink = DrinkController.find_by_id(selected_item[0])
         self.id.set(drink.id)
         self.title.set(drink.title)
         self.price.set(drink.price)
@@ -47,7 +48,7 @@ class DrinkView:
 
     def edit_click(self):
         try:
-            drink = DrinkController.edit(
+            status, data = DrinkController.edit(
                 self.id.get(),
                 self.title.get(),
                 self.price.get(),
@@ -56,10 +57,10 @@ class DrinkView:
                 self.available.get()
             )
             if status:
-                msg.showinfo("Edited Successfully", message)
+                msg.showinfo("Edited Successfully", data)
                 self.reset_form()
             else:
-                msg.showerror("Failed to Edit", message)
+                msg.showerror("Failed to Edit", data)
         except Exception as e:
             msg.showerror("Failed to Edit", str(e))
 
@@ -89,7 +90,6 @@ class DrinkView:
 
         self.table = Table(win, ["Id", "Title", "Price", "Duration", "Size", "Available"],
                            [60, 100, 100, 80, 80, 60], 250, 20, self.table_click)
-        self.table.refresh_table(DrinkController.find_all())
 
         Button(win, text="Save", width=10, command=self.save_click).place(x=100, y=300)
         Button(win, text="Edit", width=10, command=self.edit_click).place(x=100, y=330)

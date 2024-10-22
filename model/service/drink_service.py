@@ -18,6 +18,10 @@ class DrinkService:
         return cls.repo.remove(id)
 
     @classmethod
+    def find_all(cls):
+        return cls.repo.find_all()
+
+    @classmethod
     def find_by_id(cls, id):
         return cls.repo.find_by_id(id)
 

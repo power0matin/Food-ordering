@@ -1,8 +1,6 @@
 from controller.table_controller import TableController
 from view.table_view import TableView
 
-# todo : test failes
-
 # Save +
 TableController.save("table3", "right", 3, True)
 
@@ -13,18 +11,16 @@ TableController.save("table3", "right", 3, True)
 # TableController.remove(2)
 
 # Find all +
-# table_findall = TableController.find_all()
-# for table in table_findall[1]:
-#   print(f"title: {table.title}, location: {table.location}, number: {table.number}, is_empty: {table.is_empty}")
+_, tables = TableController.find_all()
+for table in tables:
+  print(f"title: {table.title}, location: {table.location}, number: {table.number}, is_empty: {table.is_empty}")
 
 # Find Empty Table
 
-TableController.find_empty_tables()
+# TableController.find_empty_tables()
 
 # Find By Number
 
 # TableController.find_by_number(2)
-
-# برای ظاهر مشکل ران وجود داشت که شما سر کلاس بر طرفش کردید اما فکر میکنم به دلیل اپدیت اشتباه من درست کامیت نشد
 
 TableView()

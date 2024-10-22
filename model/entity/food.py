@@ -4,7 +4,7 @@ from model.tools.validation import Validation
 class Food(Base):
     __tablename__ = "food_tbl"
 
-    _id = Column("id", Integer, primary_key=True, autoincrement=True)
+    id = Column(Integer, primary_key=True, autoincrement=True)
     _title = Column("title", String(50), nullable=False)
     _description = Column("description", String(100), nullable=False)
     _price = Column("price", Float, nullable=False)
@@ -12,22 +12,14 @@ class Food(Base):
     _size = Column("size", String(10), nullable=False)
     _available = Column("available", Boolean, default=True)
 
-    def __init__(self, food_id, title, description, price, duration, size, available=True):
-        self.food_id = food_id
+    def __init__(self, id, title, description, price, duration, size, available=True):
+        self.id = id
         self.title = title
         self.description = description
         self.price = price
         self.duration = duration
         self.size = size
         self.available = available
-
-    @property
-    def food_id(self):
-        return self._id
-
-    @food_id.setter
-    def food_id(self, food_id):
-        self._id = Validation.id_validator(food_id, "Invalid ID!")
 
     @property
     def title(self):

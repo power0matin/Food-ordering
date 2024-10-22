@@ -15,7 +15,7 @@ class TableView:
         self.table.refresh_table(TableController.find_all()[1])
 
     def table_click(self, selected_item):
-        table = Table(*selected_item)
+        _, table = TableController.find_by_id(selected_item[0])
         self.id.set(table.id)
         self.title.set(table.title)
         self.location.set(table.location)
@@ -36,11 +36,12 @@ class TableView:
             else:
                 msg.showerror("Failed to Save", message)
         except Exception as e:
-            msg.showerror("Failed to Save", e)
+            msg.showerror("Failed to Save", f"{e}")
 
     def edit_click(self):
         try:
             status, message = TableController.edit(
+                self.id.get(),
                 self.title.get(),
                 self.location.get(),
                 self.number.get(),
@@ -52,7 +53,7 @@ class TableView:
             else:
                 msg.showerror("Failed to Edit", message)
         except Exception as e:
-            msg.showerror("Failed to Edit", e)
+            msg.showerror("Failed to Edit", f"{e}")
 
     def remove_click(self):
         if msg.askyesno("Remove", "Are you sure?"):
@@ -64,7 +65,7 @@ class TableView:
                 else:
                     msg.showerror("Failed to Remove", message)
             except Exception as e:
-                msg.showerror("Failed to Remove", e)
+                msg.showerror("Failed to Remove", f"{e}")
 
     def find_all_click(self):
         try:
@@ -72,7 +73,7 @@ class TableView:
             self.table.refresh_table(tables)
             msg.showinfo("Find All Successfully", tables)
         except Exception as e:
-            msg.showerror("Failed to Find", e)
+            msg.showerror("Failed to Find", f"{e}")
 
     def find_empty_table_click(self):
         is_empty = self.is_empty.get()
@@ -84,7 +85,7 @@ class TableView:
             else:
                 msg.showerror("Failed to empty table", is_empty)
         except Exception as e:
-            msg.showerror("Failed to Find", e)
+            msg.showerror("Failed to Find", f"{e}")
 
     def find_by_number_click(self):
         number = self.number.get()
@@ -96,7 +97,7 @@ class TableView:
             else:
                 msg.showerror("Failed to Find By Number", number)
         except Exception as e:
-            msg.showerror("Failed to Find", e)
+            msg.showerror("Failed to Find", f"{e}")
 
     def __init__(self):
         win = Tk()

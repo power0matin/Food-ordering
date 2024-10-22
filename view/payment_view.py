@@ -19,6 +19,7 @@ class PaymentView:
     # table function:
     def table_click(self, selected_item):
         print(selected_item)
+    #     todo : complete it ...
 
     # save function:
     def save_click(self):

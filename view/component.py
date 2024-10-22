@@ -56,4 +56,5 @@ class Table:
 
     def select_table(self, event):
         data = self.table.item(self.table.focus())["values"]
-        self.select_function(data)
+        if data:
+            self.select_function(data)
