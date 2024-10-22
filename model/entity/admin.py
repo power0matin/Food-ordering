@@ -10,7 +10,7 @@ class Admin(Base):
     _family = Column("family", String(50), nullable=False)
     _username = Column("username", String(30), nullable=False)
     _password = Column("password", String(40), nullable=False)
-    _access_level = Column("access_level", Integer, nullable=False)
+    _access_level = Column("access_level", String(20), nullable=False)
 
     def __init__(self, id, name, family, username, password, access_level):
         self.id = id
@@ -69,6 +69,6 @@ class Admin(Base):
         return self._access_level
 
     @access_level.setter
-    @pattern_validator(r"^[0-9]{1,}$", "Invalid access_level")
+    @pattern_validator(r"^\d{1,20}$", "Invalid access_level")
     def access_level(self, access_level):
         self._access_level = access_level

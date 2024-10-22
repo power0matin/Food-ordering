@@ -33,7 +33,7 @@ class AdminController:
     @classmethod
     @exception_handling
     def find_by_id(cls, id):
-        return  AdminService.find_by_id(id)
+        return AdminService.find_by_id(id)
 
     @classmethod
     @exception_handling
@@ -43,9 +43,9 @@ class AdminController:
     @classmethod
     @exception_handling
     def find_by_username_password(cls, username, password):
-        return  AdminService.find_by_username_password(username, password)
+        return AdminService.find_by_username_password(username, password)
 
     @classmethod
     @exception_handling
     def find_by_access_level(cls, access_level):
-        return  AdminService.find_by_access_level(access_level)
+        return AdminService.find_by_access_level(access_level)

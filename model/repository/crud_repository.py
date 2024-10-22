@@ -34,7 +34,6 @@ class CrudRepository:
         return None
 
     def find_all(self):
-        print(session.query(self.class_name))
         entity_list = session.query(self.class_name).all()
         return entity_list
 
