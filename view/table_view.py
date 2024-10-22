@@ -12,7 +12,8 @@ class TableView:
         self.location.set("")
         self.number.set(0)
         self.is_empty.set(True)
-        self.refresh_table()
+        self.table.refresh_table(TableController.find_all()[1])
+
     def table_click(self, selected_item):
         print(selected_item)
 
@@ -106,7 +107,6 @@ class TableView:
 
         self.table = Table(win, ["Id", "Name", "Family", "Username", "Password", "Access Level"],
                            [60, 100, 100, 100, 100, 100], 250, 20, self.table_click)
-        self.table.refresh_table(TableController.find_all())
 
         Button(win, text="Save", width=10, command=self.save_click).place(x=100, y=260)
         Button(win, text="Edit", width=10, command=self.edit_click).place(x=100, y=290)

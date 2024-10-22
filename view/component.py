@@ -14,6 +14,8 @@ class LabelWithEntry:
                 self.variable = DoubleVar()
             case "bool":
                 self.variable = BooleanVar()
+            case _:
+                self.variable = StringVar()
 
         Entry(window, textvariable=self.variable, state=state).place(x=x + distance, y=y)
 
