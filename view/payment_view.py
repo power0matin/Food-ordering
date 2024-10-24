@@ -104,13 +104,16 @@ class PaymentView:
 
     # find by payment type function:
     def find_by_payment_type_click(self):
-        if msg.askyesno("Find By Payment Type"):
-            status, message = PaymentController.find_by_payment_type(self.payment_type.get())
-            if status:
-                msg.showinfo("Found!", message)
-                self.reset_form()
+        pay_type = self.payment_type.get()
+        try:
+            payment = PaymentController.find_by_payment_type(pay_type)
+            if payment:
+                self.table.refresh_table(payment)
+                msg.showinfo("Found By Payment Type!", payment)
             else:
-                msg.showerror("Error: NOT Found!", message)
+                msg.showerror("Error: Couldn't Find By Payment Type!", pay_type)
+        except Exception as e:
+            msg.showerror("Error: Couldn't Find By Payment Type!", str(e))
 
     # find by amount function:
     def find_by_amount_click(self):
