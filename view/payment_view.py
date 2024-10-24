@@ -15,50 +15,70 @@ class PaymentView:
         self.payment_type.set("")
         self.description.set("")
         self.order.set("")
+        status, data = PaymentController.find_all()
+        if status:
+            self.table.refresh_table(data)
+        else:
+            msg.showerror("Error", data)
 
     # table function:
     def table_click(self, selected_item):
-        print(selected_item)
+        payment = PaymentController.find_by_id(selected_item[0])
+        self.id.set(payment.id)
+        self.amount.set(payment.amount)
+        self.payment_type.set(payment.payment_type)
+        self.description.set(payment.description)
+        self.order.set(payment.order)
+
     #     todo : complete it ...
 
     # save function:
     def save_click(self):
-        status, message = PaymentController.save(
-            self.amount.set(1),
-            self.payment_type.set(""),
-            self.description.set(""),
-            self.order.set("")
-        )
-        if status:
-            msg.showinfo("Saved!", message)
-            self.reset_form()
-        else:
-            msg.showerror("Error: NOT Saved!", message)
+        try:
+            status, message = PaymentController.save(
+                self.amount.get(),
+                self.payment_type.get(),
+                self.description.get(),
+                self.order.get()
+            )
+            if status:
+                msg.showinfo("Saved!", message)
+                self.reset_form()
+            else:
+                msg.showerror("Error: Couldn't Save!", message)
+        except Exception as e:
+            msg.showerror("Error: Couldn't Save!", str(e))
 
     # edit function:
     def edit_click(self):
-        status, message = PaymentController.edit(
-            self.id.get(),
-            self.amount.set(0),
-            self.payment_type.set(""),
-            self.description.set(""),
-            self.order.set("")
-        )
-        if status:
-            msg.showinfo("Edited!", message)
-            self.reset_form()
-        else:
-            msg.showerror("Error: NOT Edited!", message)
+        try:
+            status, message = PaymentController.edit(
+                self.id.get(),
+                self.amount.get(),
+                self.payment_type.get(),
+                self.description.get(),
+                self.order.get()
+            )
+            if status:
+                msg.showinfo("Edited!", message)
+                self.reset_form()
+            else:
+                msg.showerror("Error: Couldn't Edit!", message)
+        except Exception as e:
+            msg.showerror("Error: Couldn't Edit!", str(e))
 
     # remove function:
     def remove_click(self):
-        if msg.askyesno("Remove Payment", "Are you sure?"):
-            status, message = PaymentController.remove(self.id.get())
-            if status:
-                msg.showinfo("Removed!", message)
-                self.reset_form()
-            else:
-                msg.showerror("Error: NOT Removed!", message)
+        try:
+            if msg.askyesno("Remove Payment", "Are you sure?"):
+                status, message = PaymentController.remove(self.id.get())
+                if status:
+                    msg.showinfo("Removed!", message)
+                    self.reset_form()
+                else:
+                    msg.showerror("Error: Couldn't Remove!", message)
+        except Exception as e:
+            msg.showerror("Error: Couldn't Remove!", str(e))
 
     # find all function:
     def find_all_click(self):
@@ -119,9 +139,9 @@ class PaymentView:
         # entry view:
         self.id = LabelWithEntry(win, "Id", 30, 40, data_type="int", state="readonly")
         self.amount = LabelWithEntry(win, "Amount", 30, 80)
-#self.payment_type.setAccessibleName("Payment Type:")
-        self.payment_type = Combobox(win,values=["Online","In Person"], name="payment type:", state="readonly")
-        self.payment_type.place(x=80,y=120)
+        # self.payment_type.setAccessibleName("Payment Type:")
+        self.payment_type = Combobox(win, values=["Online", "In Person"], name="payment type:", state="readonly")
+        self.payment_type.place(x=80, y=120)
         self.description = LabelWithEntry(win, "Description", 30, 160)
         self.order = LabelWithEntry(win, "Order", 30, 200)
 
