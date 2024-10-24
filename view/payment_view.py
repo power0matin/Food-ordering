@@ -130,13 +130,16 @@ class PaymentView:
 
     # find by order function:
     def find_by_order_click(self):
-        if msg.askyesno("Find By Order"):
-            status, message = PaymentController.find_by_order(self.order.get())
-            if status:
-                msg.showinfo("Found!", message)
-                self.reset_form()
+        ordr = self.order.get()
+        try:
+            payment = PaymentController.find_by_order(ordr)
+            if payment:
+                self.table.refresh_table(payment)
+                msg.showinfo("Found By Order!", payment)
             else:
-                msg.showerror("Error: NOT Found!", message)
+                msg.showerror("Error: Couldn't Find By Order!", ordr)
+        except Exception as e:
+            msg.showerror("Error: Couldn't Find By Order!", str(e))
 
     def __init__(self):
         win = Tk()
