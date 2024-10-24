@@ -30,8 +30,6 @@ class PaymentView:
         self.description.set(payment.description)
         self.order.set(payment.order)
 
-    #     todo : complete it ...
-
     # save function:
     def save_click(self):
         try:
@@ -69,16 +67,16 @@ class PaymentView:
 
     # remove function:
     def remove_click(self):
-        try:
-            if msg.askyesno("Remove Payment", "Are you sure?"):
+        if msg.askyesno("Remove Payment", "Are you sure?"):
+            try:
                 status, message = PaymentController.remove(self.id.get())
                 if status:
                     msg.showinfo("Removed!", message)
                     self.reset_form()
                 else:
                     msg.showerror("Error: Couldn't Remove!", message)
-        except Exception as e:
-            msg.showerror("Error: Couldn't Remove!", str(e))
+            except Exception as e:
+                msg.showerror("Error: Couldn't Remove!", str(e))
 
     # find all function:
     def find_all_click(self):
