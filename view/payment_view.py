@@ -117,13 +117,16 @@ class PaymentView:
 
     # find by amount function:
     def find_by_amount_click(self):
-        if msg.askyesno("Find By Amount"):
-            status, message = PaymentController.find_by_amount(self.amount.get())
-            if status:
-                msg.showinfo("Found!", message)
-                self.reset_form()
+        amnt = self.amount.get()
+        try:
+            payment = PaymentController.find_by_amount(amnt)
+            if payment:
+                self.table.refresh_table(payment)
+                msg.showinfo("Found By Amount!", payment)
             else:
-                msg.showerror("Error: NOT Found!", message)
+                msg.showerror("Error: Couldn't Find By Amount!", amnt)
+        except Exception as e:
+            msg.showerror("Error: Couldn't Find By Amount!", str(e))
 
     # find by order function:
     def find_by_order_click(self):
