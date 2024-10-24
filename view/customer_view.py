@@ -92,7 +92,7 @@ class CustomerView:
         try:
             customer = CustomerController.find_by_id(id)
             if customer:
-                self.table.refresh_table(admin)
+                self.table.refresh_table(customer)
                 msg.showinfo("Found By ID!", customer)
             else:
                 msg.showerror("Error: Couldn't Find By ID!", id)

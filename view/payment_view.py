@@ -82,23 +82,25 @@ class PaymentView:
 
     # find all function:
     def find_all_click(self):
-        if msg.askyesno("Find All Payments"):
-            status, message = PaymentController.find_all()
-            if status:
-                msg.showinfo("Found ALL!", message)
-                self.reset_form()
-            else:
-                msg.showerror("Error: NOT Found!", message)
+        try:
+            payments = PaymentController.find_all()
+            self.table.refresh_table(payments)
+            msg.showinfo("Found ALL!", payments)
+        except Exception as e:
+            msg.showerror("Error: NOT Found!", str(e))
 
     # find by id function:
     def find_by_id_click(self):
-        if msg.askyesno("Find By Id"):
-            status, message = PaymentController.find_by_id(self.id.get())
-            if status:
-                msg.showinfo("Found!", message)
-                self.reset_form()
+        id = self.id.get()
+        try:
+            payment = PaymentController.find_by_id(id)
+            if payment:
+                self.table.refresh_table(payment)
+                msg.showinfo("Found By ID!", payment)
             else:
-                msg.showerror("Error: NOT Found!", message)
+                msg.showerror("Error: Couldn't Find By ID!", id)
+        except Exception as e:
+            msg.showerror("Error: Couldn't Find By ID!", str(e))
 
     # find by payment type function:
     def find_by_payment_type_click(self):
