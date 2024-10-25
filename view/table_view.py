@@ -12,7 +12,11 @@ class TableView:
         self.location.set("")
         self.number.set(0)
         self.is_empty.set(True)
-        self.table.refresh_table(TableController.find_all()[1])
+        status, data = TableController.find_all()
+        if status:
+            self.table.refresh_table(data)
+        else:
+            msg.showerror("Error", data)
 
     def table_click(self, selected_item):
         _, table = TableController.find_by_id(selected_item[0])
@@ -108,10 +112,10 @@ class TableView:
         self.id = LabelWithEntry(win, "Id", 20, 20, data_type="int", state="readonly")
         self.title = LabelWithEntry(win, "Title", 20, 60, data_type="text")
         self.location = LabelWithEntry(win, "Location", 20, 100, data_type="text")
-        self.number = LabelWithEntry(win, "Number", 20, 100, data_type="int")
-        self.is_empty = LabelWithEntry(win, "Is_Empty", 20, 100, data_type="bool")
+        self.number = LabelWithEntry(win, "Number", 20, 140, data_type="int")
+        self.is_empty = LabelWithEntry(win, "Is_Empty", 20, 180, data_type="bool")
 
-        self.table = Table(win, ["Id", "Name", "Family", "Username", "Password", "Access Level"],
+        self.table = Table(win, ["Id", "title", "location", "number", "is_empty"],
                            [60, 100, 100, 100, 100, 100], 250, 20, self.table_click)
 
         Button(win, text="Save", width=10, command=self.save_click).place(x=100, y=260)
