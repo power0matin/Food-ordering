@@ -30,7 +30,7 @@ AdminController.save("matin", "shahabadi", "powermatin", "abcd1234", "1")
 # # costumer app test
 # CustomerController.save("aida", "shams", "asHe77@gmail.com", "09114567893", "aidaaa", "aida1234")
 # todo: 'bool' object has no attribute 'to_tuple'???(testing find_all ,etc)
-CustomerView()
+#CustomerView()
 # #
 # # payment app test
 # PaymentController.save(3, "online", "blah blah", "drink")

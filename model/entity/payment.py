@@ -33,7 +33,7 @@ class Payment(Base):
 
     @amount.setter
     def amount(self, amount):
-        if amount <= 0:
+        if int(amount) <= 0:
             raise ValueError("Invalid Amount.")
         self._amount = amount
 
