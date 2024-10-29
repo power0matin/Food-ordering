@@ -3,7 +3,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 
-engine = create_engine("mysql+pymysql://root:Matin2170@localhost:3306/mft")
+engine = create_engine("mysql+pymysql://root:root123@localhost:3306/mft")
 
 Session = sessionmaker(bind=engine)
 session = Session()
