@@ -1,5 +1,6 @@
 from model.entity import *
 from model.tools.validation import pattern_validator
+from sqlalchemy import Column, Integer, String
 
 
 class Admin(Base):
@@ -64,3 +65,6 @@ class Admin(Base):
     # @pattern_validator(r"^\d{1,20}$", "Invalid access_level")
     def access_level(self, access_level):
         self._access_level = access_level
+
+    def to_tuple(self):
+        return self.id, self.name, self.family, self.username, self.password, self.access_level

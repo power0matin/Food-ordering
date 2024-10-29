@@ -46,13 +46,15 @@ class Table:
             self.table.bind("<KeyRelease>", self.select_table)
         self.table.place(x=x, y=y)
 
-    def refresh_table(self, data_list):
-        for item in self.table.get_children():
-            self.table.delete(item)
+    def refresh_table(self, data):
+        self.table.delete(*self.table.get_children())
 
-        if data_list:
-            for data in data_list:
-                self.table.insert("", END, values=data.to_tuple())
+        for item in data:
+            if hasattr(item, 'to_tuple'):
+                values = item.to_tuple()
+            else:
+                values = item
+            self.table.insert("", "end", values=values)
 
     def select_table(self, event):
         data = self.table.item(self.table.focus())["values"]
