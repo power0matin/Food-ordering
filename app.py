@@ -28,13 +28,12 @@ AdminController.save("matin", "shahabadi", "powermatin", "abcd1234", "1")
 # print(u)
 # #
 # # costumer app test
-# CustomerController.save("aida", "shams", "asHe77@gmail.com", "09114567893", "aidaaa", "aida1234")
-# todo: 'bool' object has no attribute 'to_tuple'???(testing find_all ,etc)
-#CustomerView()
-# #
+CustomerController.save("aida", "shams", "asHe77@gmail.com", "09114567893", "aidaaa", "aida1234")
+CustomerView()
+# todo: '"tuple" object has no attribute "id"'
 # # payment app test
-# PaymentController.save(3, "online", "blah blah", "drink")
-PaymentView()
+#PaymentController.save(3, "online", "blah blah", "drink")
+#PaymentView()
 # #
 # TableController.save("table1", "right", 2, True)
 #AdminView()
