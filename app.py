@@ -9,8 +9,6 @@ from view.admin_view import AdminView
 from view.customer_view import CustomerView
 from view.payment_view import PaymentView
 
-print("App Started")
-
 connection_string = "mysql+pymysql://root:root123@localhost:3306/mft"
 if database_exists(connection_string):
     drop_database(connection_string)
