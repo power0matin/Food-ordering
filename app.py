@@ -9,6 +9,8 @@ from view.admin_view import AdminView
 from view.customer_view import CustomerView
 from view.payment_view import PaymentView
 
+print("App Started")
+
 connection_string = "mysql+pymysql://root:root123@localhost:3306/mft"
 if database_exists(connection_string):
     drop_database(connection_string)
@@ -32,8 +34,8 @@ CustomerController.save("aida", "shams", "asHe77@gmail.com", "09114567893", "aid
 CustomerView()
 # todo: '"tuple" object has no attribute "id"'
 # # payment app test
-#PaymentController.save(3, "online", "blah blah", "drink")
-#PaymentView()
+# PaymentController.save(3, "online", "blah blah", "drink")
+# PaymentView()
 # #
 # TableController.save("table1", "right", 2, True)
-#AdminView()
+# AdminView()
