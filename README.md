@@ -1,5 +1,11 @@
 # 🍽️ Food Ordering System
 
+<p align="center">
+  <a href="#"><img src="https://badges.strrl.dev/visits/power0matin/Food-ordering?style=flat&labelColor=333333&logoColor=E7E7E7&label=Visits&logo=github" alt="Visits badge" /></a>
+  <a href="#"><img src="https://img.shields.io/github/stars/power0matin/Food-ordering?style=flat&labelColor=333333&logoColor=E7E7E7&color=EEAA00&label=Stars&logo=github" alt="Stars badge" /></a>
+  <a href="#"><img src="https://img.shields.io/github/repo-size/power0matin/Food-ordering?style=flat&labelColor=333333&logoColor=E7E7E7&color=007BFF&label=Repo%20Size&logo=github" alt="Repo size badge" /></a>
+</p>
+
 این پروژه یک **سیستم سفارش غذا** است که به کاربران امکان می‌دهد غذا و نوشیدنی‌های مختلف را سفارش دهند.
 این سیستم شامل بخش‌های مدیریت مشتریان، غذاها، نوشیدنی‌ها، سفارشات، پرداخت‌ها و میزها می‌باشد.
 
